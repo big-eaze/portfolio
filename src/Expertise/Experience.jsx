@@ -15,11 +15,11 @@ export function ExperiencePage({isDarkMode}) {
         <div className="experi-content-container">
           <p className="front-headline">Frontend Development</p>
           <div className="experiences-grid">
-            <LanguagePart language="HTML" level="Experienced" img="/html5-logo.png"/>
-            <LanguagePart language="CSS" level="Experienced" img="/css3-logo.webp"/>
-            <LanguagePart language="Javascript" level="Experienced" img="/javascript-logo.png" />
-            <LanguagePart language="React" level="Intermediate" img="/react-logo.png" />
-            <LanguagePart language="Typescript" level="Intermediate" img="/typescript-logo.png" />
+            <LanguagePart language="HTML" level="Experienced" img="/portfolio/html5-logo.png"/>
+            <LanguagePart language="CSS" level="Experienced" img="/portfolio/css3-logo.webp"/>
+            <LanguagePart language="Javascript" level="Experienced" img="/portfolio/javascript-logo.png" />
+            <LanguagePart language="React" level="Intermediate" img="/portfolio/react-logo.png" />
+            <LanguagePart language="Typescript" level="Intermediate" img="/portfolio/typescript-logo.png" />
           </div>
         </div>
       </div>

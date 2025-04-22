@@ -4,6 +4,7 @@ import { HomeIntro } from "./HomeIntro";
 import "./HomePage.css"
 
 export function HomePage({inDisplay, setInDisplay}) {
+  
   return(
     <>
     <div className="app-light-mode-container">
