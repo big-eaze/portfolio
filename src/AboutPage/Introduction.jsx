@@ -8,24 +8,24 @@ export function Introduction() {
       </div>
       <div className="content-container">
         <div className="img-wrapper">
-          <img className="profile-pic" src="/profile-1.jpg" />
+          <img className="profile-pic" src="/portfolio/profile-1.jpg" />
         </div>
         <div>
           <div className="experience-container">
             <div className="X-l-container">
-              <img className="icon-experience" src="work-history-dark.svg" />
+              <img className="icon-experience" src="/portfolio/work-history-dark.svg" />
               <h2 className="light">Experience</h2>
               <p className="text-l-mix" >2+ years</p>
               <p className="text-l-mix">Frontend Development</p>
             </div>
             <div className="X-l-container">
-              <img className="icon-experience" src="school-dark.svg" />
+              <img className="icon-experience" src="/portfolio/school-dark.svg" />
               <h2 className="light">Education</h2>
               <p className="empty-space"></p>
               <p className="text-l-mix">B.Sc Bachelors Degree</p>
             </div>
             <div className="X-l-container">
-              <img className="icon-experience" src="language-dark.svg" />
+              <img className="icon-experience" src="/portfolio/language-dark.svg" />
               <h3 className="light">Languages</h3>
               <p className="text-l-mix">HTML, CSS, Javascript,<br /> React js, Typescript</p>
             </div>

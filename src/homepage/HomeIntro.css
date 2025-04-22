@@ -49,7 +49,10 @@
   background-color: rgb(209, 209, 209);
 }
 
-
+.arrow-forward {
+  width: 18px;
+  vertical-align: middle;
+}
 
 
 

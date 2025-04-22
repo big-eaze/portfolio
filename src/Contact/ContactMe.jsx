@@ -17,7 +17,7 @@ export function ContactMe() {
         </div>
         <div className="textarea-btn-container">
           <textarea placeholder="Enter your message" />
-          <button className="btn-light">Submit now ➡ </button>
+          <button className="btn-light">Submit now </button>
         </div>
       </div>
     </div>

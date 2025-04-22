@@ -4,7 +4,7 @@ import "./HomeNav.css"
 export function HomeNav() {
   return (
     <Link className="back-home-link" to="/">
-      <img className="home-icon" src="/home.svg" />
+      <img className="home-icon" src="/portfolio/home.svg" />
     </Link>
   )
 }

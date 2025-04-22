@@ -13,15 +13,15 @@ export function ProjectPage({isDarkMode}) {
         <p className="welcome-msg">Welcome to my web development portfolio! <br/>Explore a collection of projects showcasing my <br/>expertise in front-end development.</p>
         <div className="projects-container">
           <Project
-            img="/project-one.jpg"
+            img="/portfolio/project-one.jpg"
             title="Project One"
           />
           <Project
-            img="/project-two.webp"
+            img="/portfolio/project-two.webp"
             title="Project Two"
           />
           <Project
-            img="/project-three.webp"
+            img="/portfolio/project-three.webp"
             title="Project Three"
           />
         </div>
