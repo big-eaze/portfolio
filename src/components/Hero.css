@@ -52,7 +52,7 @@
 .cta-button {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   background-color: transparent;
   color: #19c37d;
   padding: 12px 22px;
@@ -63,19 +63,17 @@
   transition: all 0.3s ease;
 }
 
-.cta-button img {
-  width: 18px;
-  height: auto;
-  transition: transform 0.3s ease;
-}
 
 .cta-button:hover {
   background-color: #19c37d;
   color: #0f0f0f;
 }
-
-.cta-button:hover img {
+.cta-button span {
+  font-size: 20px;
+}
+.cta-button:hover span {
   transform: translateX(5px);
+  color: #0f0f0f
 }
 
 

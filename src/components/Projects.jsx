@@ -11,7 +11,7 @@ export function Projects() {
       <div className="projects-grid">
 
         <div className="project-card">
-          <img src="/project-one.jpg" alt="Project 1" />
+          <img src="/portfolio/project-one.jpg" alt="Project 1" />
           <div className="project-info">
             <h3>Portfolio Website</h3>
             <p>A modern single-page React portfolio website with scroll navigation and animations.</p>
@@ -23,7 +23,7 @@ export function Projects() {
         </div>
 
         <div className="project-card">
-          <img src="/project-two.webp" alt="Project 2" />
+          <img src="/portfolio/project-two.webp" alt="Project 2" />
           <div className="project-info">
             <h3>Task Manager App</h3>
             <p>Task management tool with full CRUD operations, built with React + Express + MongoDB.</p>
@@ -33,8 +33,6 @@ export function Projects() {
             </div>
           </div>
         </div>
-
-
       </div>
     </section>
   );

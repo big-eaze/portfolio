@@ -9,11 +9,12 @@ export function Contact() {
       </div>
 
       <div className="contact-container">
-        <form className="contact-form" onSubmit={(e) => e.preventDefault()}>
-          <input type="text" placeholder="Your Name" required />
-          <input type="email" placeholder="Your Email" required />
-          <textarea rows="6" placeholder="Your Message" required></textarea>
+        <form action="https://formspree.io/f/mnnzdbdk" method="POST" className="contact-form">
+          <input name="name" type="text" placeholder="Your Name" required />
+          <input name="email" type="email" placeholder="Your Email" required />
+          <textarea name="message" rows="6" placeholder="Your Message" required></textarea>
           <button type="submit">Send Message</button>
+          {/*<input type="hidden" name="_redirect" value="https://israel-portfolio.com/thank-you" />*/}
         </form>
       </div>
     </section>

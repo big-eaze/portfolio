@@ -1,7 +1,6 @@
 .navbar {
   position: sticky;
   top: 0;
-  width: 100%;
   background-color: #121212;
   padding: 20px 40px;
   display: flex;
@@ -44,7 +43,6 @@
 
   .navbar-links {
     flex-direction: column;
-    width: 100%;
     margin-top: 10px;
   }
 

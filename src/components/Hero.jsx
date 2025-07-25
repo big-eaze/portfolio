@@ -12,8 +12,7 @@ export function Hero() {
           <h1 className="name">Israel Oluwatobi Ojeleye</h1>
           <h2 className="title">Frontend Developer</h2>
           <a href="#contact" className="cta-button">
-            Contact Me
-            <img src="/portfolio/arrow-forward.svg" alt="arrow" />
+            Contact Me <span>&#8594;</span>
           </a>
         </div>
       </div>
