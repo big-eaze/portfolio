@@ -8,15 +8,11 @@ import { ProjectPage } from "./Projects/ProjectPage";
 import { ContactMe } from "./Contact/ContactMe";
 
 function App() {
-  const [inDisplay, setInDisplay] = useState(true);
 
   return (
     <Routes>
       <Route path="/" element={
-        <HomePage
-          inDisplay={inDisplay}
-          setInDisplay={setInDisplay}
-        />
+      <Hero  
       } />
       <Route path="about" element={
         <AboutPage />
