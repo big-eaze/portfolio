@@ -5,7 +5,7 @@ export function Hero() {
     <section className="hero-section" id="home">
       <div className="hero-content">
         <div className="hero-image">
-          <img src="/portfolio/profile-1.jpg" alt="Israel Ojeleye" />
+          <img src="/portfolio/israel.png" alt="Israel Ojeleye" />
         </div>
         <div className="hero-text">
           <p className="greeting">Hello, I'm</p>

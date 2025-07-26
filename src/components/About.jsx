@@ -10,13 +10,13 @@ export function About() {
 
       <div className="about-content">
         <div className="about-image">
-          <img src="/portfolio/profile-1.jpg" alt="Israel Ojeleye" />
+          <img src="/portfolio/israel.png"  alt="Israel Ojeleye" />
         </div>
 
         <div className="about-text">
           <div className="about-cards">
             <div className="about-card">
-              <img src="/portfolio/work-history-dark.svg" alt="Experience" />
+              <img  src="/portfolio/work-history-dark.svg" alt="Experience" />
               <h3>Experience</h3>
               <p>2+ Years <br /> Frontend Development</p>
             </div>

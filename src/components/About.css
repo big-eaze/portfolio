@@ -33,6 +33,7 @@
   height: 280px;
   border-radius: 20px;
   object-fit: cover;
+  object-position: top;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.03);
 }
 
@@ -96,9 +97,5 @@
 
   .about-cards {
     justify-content: center;
-  }
-
-  .about-card {
-    min-width: 100%;
   }
 }
