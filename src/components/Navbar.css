@@ -38,7 +38,7 @@
 
 .mobil-scr {
   display: none;
-  position: absolute;
+  position: fixed;
   flex-direction: column;
   background-color: #121212;
   border-bottom-left-radius: 60px;

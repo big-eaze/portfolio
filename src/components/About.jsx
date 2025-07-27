@@ -10,7 +10,7 @@ export function About() {
 
       <div className="about-content">
         <div className="about-image">
-          <img src="/portfolio/israel.png"  alt="Israel Ojeleye" />
+          <img src="/portfolio/israel2.png"  alt="Israel Ojeleye" />
         </div>
 
         <div className="about-text">
