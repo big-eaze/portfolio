@@ -13,11 +13,17 @@ export function Projects() {
         <div className="project-card">
           <img src="/portfolio/project-one.jpg" alt="Project 1" />
           <div className="project-info">
-            <h3>Portfolio Website</h3>
-            <p>A modern single-page React portfolio website with scroll navigation and animations.</p>
+            <h3>School Management APP</h3>
+            <p>A modern, visually appealing, role based(Admin, Student, staff) SM web application built with React + Express + SQLITE.</p>
+            <div>
+              LOGS
+              <p>ADMIN - Username:<strong>jahman1092</strong> password: <strong>Israel1092@</strong></p>
+              <p>STUDENT - Username:<strong>alex1092</strong> password: <strong>Alex1092@</strong></p>
+              <p>STAFF - Username:<strong>john1092</strong> password: <strong>John1092@</strong></p>
+            </div>
             <div className="project-links">
-              <a href="https://your-demo-link.com" target="_blank" rel="noreferrer">Live Demo</a>
-              <a href="https://github.com/your-repo" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="http://ginkbow-management-env.eba-wjasp6pr.eu-north-1.elasticbeanstalk.com" target="_blank" >Live Demo</a>
+              <a href="https://github.com/big-eaze/Ginkbow-Management" target="_blank" >GitHub</a>
             </div>
           </div>
         </div>
@@ -25,11 +31,11 @@ export function Projects() {
         <div className="project-card">
           <img src="/portfolio/project-two.webp" alt="Project 2" />
           <div className="project-info">
-            <h3>Task Manager App</h3>
-            <p>Task management tool with full CRUD operations, built with React + Express + MongoDB.</p>
+            <h3>An E-commerce website (fully responsive & user friendly)</h3>
+            <p>A single-page E-commerce website with full CRUD operations, built with React + Express + SQLITE.</p>
             <div className="project-links">
-              <a href="https://your-demo-link.com" target="_blank" rel="noreferrer">Live Demo</a>
-              <a href="https://github.com/your-repo" target="_blank" rel="noreferrer">GitHub</a>
+              <a href="http://ginkbow-shop-env.eba-wzppp4xt.eu-north-1.elasticbeanstalk.com/" target="_blank">Live Demo</a>
+              <a href="https://github.com/big-eaze/Ginkbow-shop" target="_blank" >GitHub</a>
             </div>
           </div>
         </div>
