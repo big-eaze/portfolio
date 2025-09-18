@@ -43,7 +43,7 @@ export function Projects() {
         <div className="project-card">
           <img src="/portfolio/project3.jpg" alt="Project 2" />
           <div className="project-info">
-            <h3>A Restuarant web app (responsive to mobile screen sizes and intuitive Navigations)</h3>
+            <h3>A Restaurant web app (responsive to mobile screen sizes and intuitive Navigations)</h3>
             <p>A prototype built with modern day tech.(React, tailwind-css, shadcn)</p>
             <div className="project-links">
               <a href="https://restaurant-ten-sable.vercel.app" target="_blank">Live Demo</a>

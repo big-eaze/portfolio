@@ -11,41 +11,55 @@ export function Experience() {
       <div className="experience-content">
         <h2 className="category-title">Frontend Development</h2>
         <div className="tech-grid">
-          <div className="tech-card">
-            <img src="/portfolio/html5-logo.png" alt="HTML" />
-            <div>
-              <h3>HTML</h3>
-              <p>Experienced</p>
-            </div>
-          </div>
-          <div className="tech-card">
-            <img src="/portfolio/css3-logo.webp" alt="CSS" />
-            <div>
-              <h3>CSS</h3>
-              <p>Experienced</p>
-            </div>
-          </div>
-          <div className="tech-card">
-            <img src="/portfolio/javascript-logo.png" alt="JavaScript" />
-            <div>
-              <h3>JavaScript</h3>
-              <p>Experienced</p>
-            </div>
-          </div>
-          <div className="tech-card">
-            <img src="/portfolio/react-logo.png" alt="React" />
-            <div>
-              <h3>React</h3>
-              <p>Intermediate</p>
-            </div>
-          </div>
-          <div className="tech-card">
-            <img src="/portfolio/typescript-logo.png" alt="TypeScript" />
-            <div>
-              <h3>TypeScript</h3>
-              <p>Basic</p>
-            </div>
-          </div>
+          {
+
+            [
+              {
+                name: "HTML",
+                experience: "Experienced",
+                img: "/portfolio/html5-logo.png",
+                alt: "HTML"
+              },
+              {
+                name: "CSS",
+                experience: "Experienced",
+                img: "/portfolio/css3-logo.webp",
+                alt: "CSS"
+              },
+              {
+                name: "Javascript",
+                experience: "Experienced",
+                img: "/portfolio/javascript-logo.png",
+                alt: "Javascript"
+              },
+              {
+                name: "React.js",
+                experience: "Experienced",
+                img: "/portfolio/react-logo.png",
+                alt: "React"
+              },
+              {
+                name: "Tailwindcss",
+                experience: "intermediate",
+                img: "/portfolio/tailwindcss.jpg",
+                alt: "Tailwindcss"
+              },
+              {
+                name: "Next.js",
+                experience: "intermediate",
+                img: "/portfolio/nextjs.jpg",
+                alt: "Next.js"
+              }
+            ].map((tech) =>
+              <div className="tech-card">
+                <img src={tech.img} alt={tech.alt} />
+                <div>
+                  <h3>{tech.name}</h3>
+                  <p>{tech.experience}</p>
+                </div>
+              </div>
+            )
+          }
         </div>
       </div>
     </section>
