@@ -1,10 +1,30 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 html {
   scroll-behavior: smooth;
 }
 
+:root {
+  --bg-dark: #0a0a0a;
+  --accent: #22d3ee;
+  --text-light: #f1f1f1;
+}
 
 body {
-  margin: 0px;
-  padding: 0;
-  font-family: roboto, Arial;
+  font-family: "Poppins", sans-serif;
+  background: #0f172a;
+  color: var(--text-light);
+  scroll-behavior: smooth;
+}
+
+section {
+  min-height: 100vh;
+  padding: 5rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

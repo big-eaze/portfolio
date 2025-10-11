@@ -1,69 +1,101 @@
 .experience-section {
-  background-color: #0f0f0f;
-  color: white;
-  padding: 100px 20px;
+  background: #0f172a;
+  width: 100%;
+  color: #fff;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+  text-align: center;
+  border-top: 4px solid #22d3ee;
+  border-bottom: 4px solid #22d3ee;
 }
 
 .experience-header {
-  text-align: center;
-  margin-bottom: 60px;
+  margin-bottom: 3rem;
 }
 
 .experience-subtitle {
-  color: #aaa;
-  font-size: 1.2rem;
+  color: #22d3ee;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 0.5rem;
 }
 
 .experience-title {
-  font-size: 2.4rem;
-  margin-top: 10px;
-}
-
-.experience-content {
-  max-width: 1000px;
-  margin: 0 auto;
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: linear-gradient(90deg, #22d3ee, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .category-title {
+  color: #e2e8f0;
   font-size: 1.5rem;
-  color: #19c37d;
-  margin-bottom: 30px;
-  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: 600;
 }
 
 .tech-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 25px;
+ grid-template-columns: repeat(2, 1fr); 
+  gap: 1.8rem;
+  justify-items: center;
 }
 
 .tech-card {
-  background-color: #1c1c1c;
-  border: 1px solid #2a2a2a;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(34, 211, 238, 0.2);
   border-radius: 12px;
-  padding: 20px;
-  text-align: center;
-  transition: transform 0.3s ease;
+  padding: 1.5rem 1rem;
+  width: 180px;
+  transition: all 0.3s ease;
+  cursor: default;
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.08);
 }
 
 .tech-card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(34, 211, 238, 0.3);
+  border-color: rgba(34, 211, 238, 0.6);
 }
 
 .tech-card img {
-  width: 40px;
-  height: 40px;
-  margin-bottom: 10px;
+  width: 45px;
+  height: 45px;
+  margin-bottom: 1rem;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px rgba(34, 211, 238, 0.3));
 }
 
-.tech-card h3 {
-  color: #fff;
-  margin: 0;
-  font-size: 1.1rem;
+.tech-info h3 {
+  color: #e0f2fe;
+  font-size: 1.05rem;
+  margin-bottom: 0.25rem;
 }
 
-.tech-card p {
-  color: #bbb;
-  margin-top: 5px;
+.tech-info p {
+  color: #94a3b8;
   font-size: 0.9rem;
+}
+
+@media (max-width: 768px) {
+  .experience-title {
+    font-size: 2rem;
+  }
+
+  .tech-card {
+    width: 150px;
+  }
+
+  .category-title {
+    font-size: 1.2rem;
+  }
+
+  .experience-section {
+    flex-direction: column;
+    
+  }
 }
