@@ -98,9 +98,14 @@
     transform: translateY(0);
     opacity: 1;
     pointer-events: all;
+    border-top: 2px solid #22D3EE;
   }
 
   .nav-toggle {
     display: block;
+
+  }
+  .x {
+    color: #22D3EE;
   }
 }

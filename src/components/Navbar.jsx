@@ -31,7 +31,7 @@ export function Navbar() {
           onClick={() => setMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
-          {menuOpen ? <X size={26} /> : <Menu size={26} />}
+          {menuOpen ? <X className="x" size={40} /> : <Menu className="x" size={40} />}
         </button>
       </div>
     </nav>
