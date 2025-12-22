@@ -7,14 +7,12 @@
   z-index: 1000;
   display: flex;
   justify-content: center;
-  transition: background 0.4s ease, box-shadow 0.4s ease, backdrop-filter 0.4s ease;
-  background: var(--bg-light-blur);
-  backdrop-filter: blur(10px);
 }
 
 .navbar.scrolled {
   background: var(--bg-light);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(10px);
 }
 
 /* Container */

@@ -24,7 +24,7 @@ const principles = [
   },
 ];
 
-export function Philosophy() {
+export default function Philosophy() {
   return (
     <section className="philosophy-section" id="philosophy">
       <motion.h2
