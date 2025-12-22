@@ -1,6 +1,5 @@
 import "./Navbar.css";
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
 
 export function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -27,11 +26,13 @@ export function Navbar() {
         </div>
 
         <button
-          className="nav-toggle"
+          className={`nav-toggle ${menuOpen ? "open" : ""}`}
           onClick={() => setMenuOpen((prev) => !prev)}
           aria-label="Toggle menu"
         >
-          {menuOpen ? <X className="x" size={40} /> : <Menu className="x" size={40} />}
+          <span></span>
+          <span></span>
+          <span></span>
         </button>
       </div>
     </nav>

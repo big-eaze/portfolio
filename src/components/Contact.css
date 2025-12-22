@@ -1,127 +1,126 @@
-/* ==========================
-   Contact Section Styling
-   ========================== */
-
-.contact {
-  background: #0b0b0b;
-  color: #f1f1f1;
-  padding: 6rem 2rem;
+.contact-section {
+  padding: 8rem 10vw;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  background: #fdf6ed;
+  /* cream-ish */
+  color: #1a1a1a;
+  position: relative;
+  overflow: hidden;
 }
 
-.contact-container {
-  max-width: 650px;
-  width: 100%;
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-weight: 800;
+  margin-bottom: 3rem;
   text-align: center;
 }
 
-/* ---------- Section Title ---------- */
-.section-title {
-  font-size: 2.6rem;
-  font-weight: 700;
-  margin-bottom: 2.5rem;
-  letter-spacing: 0.5px;
-}
-
 .section-title span {
-  color: var(--accent);
-  text-shadow: 0 0 10px rgba(34, 211, 238, 0.6);
+  color: #22d3ee;
 }
 
-/* ---------- Form Layout ---------- */
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1.5rem;
   width: 100%;
+  max-width: 550px;
+  background: #fff;
+  padding: 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 1;
 }
 
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  background: #121212;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
   padding: 1rem;
-  color: #fff;
+  border-radius: 12px;
+  border: 1px solid #ddd;
+  background: #f9f5f0;
+  color: #1a1a1a;
   font-size: 1rem;
-  transition: all 0.3s ease;
   outline: none;
-  font-family: "Inter", sans-serif;
+  transition: all 0.3s ease;
 }
 
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
-  color: #888;
+  color: #999;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-  border: 1px solid var(--accent);
-  box-shadow: 0 0 10px rgba(34, 211, 238, 0.4);
-  transform: scale(1.01);
+  border-color: #22d3ee;
+  box-shadow: 0 0 15px rgba(34, 211, 238, 0.25);
+  transform: translateY(-1px);
 }
 
-/* ---------- Button ---------- */
-.btn-accent {
-  background: var(--accent);
-  color: #000;
-  border: none;
-  border-radius: 10px;
-  padding: 1rem;
+.btn-contact {
+  padding: 0.85rem 2rem;
+  border: 1px solid #22d3ee;
+  border-radius: 50px;
+  background: #22d3ee;
+  color: #fff;
   font-weight: 600;
-  font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
-  margin-top: 0.5rem;
+  align-self: flex-start;
 }
 
-.btn-accent:hover {
+.btn-contact:hover {
   background: #00ffff;
-  box-shadow: 0 0 25px rgba(0, 255, 255, 0.4);
+  color: #000;
   transform: translateY(-2px);
 }
 
-.btn-accent.sending {
+.btn-contact.sending {
   opacity: 0.7;
   cursor: not-allowed;
 }
 
-/* ---------- Status Messages ---------- */
-.error-text {
-  color: #ff4e4e;
-  margin-top: 1rem;
+.status-msg {
   font-size: 0.95rem;
   font-weight: 500;
-}
-
-.success-text {
-  color: var(--accent);
   margin-top: 1rem;
-  font-size: 0.95rem;
-  font-weight: 500;
 }
 
-/* ---------- Responsiveness ---------- */
-@media (max-width: 600px) {
-  .contact {
-    padding: 5rem 1.5rem;
+.status-msg.success {
+  color: #10b981;
+}
+
+.status-msg.error {
+  color: #f87171;
+}
+
+
+
+@keyframes floatSlow {
+  0% {
+    transform: translateY(0) translateX(0);
   }
 
+  100% {
+    transform: translateY(-20px) translateX(20px);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
   .section-title {
     font-size: 2rem;
   }
 
-  .contact-form input,
-  .contact-form textarea {
-    font-size: 0.95rem;
-    padding: 0.9rem;
+  .contact-form {
+    padding: 2rem;
   }
 
-  .btn-accent {
-    font-size: 0.95rem;
-    padding: 0.9rem;
+  .btn-contact {
+    width: 100%;
+    text-align: center;
   }
 }

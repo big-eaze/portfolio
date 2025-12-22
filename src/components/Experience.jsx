@@ -1,85 +1,63 @@
-import "./Experience.css";
 import { motion } from "framer-motion";
+import { FaHtml5, FaCss3Alt, FaJs, FaReact } from "react-icons/fa";
+import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
+import "./Experience.css";
+
+const skills = [
+  { name: "HTML", level: 95, icon: <FaHtml5 /> },
+  { name: "CSS", level: 90, icon: <FaCss3Alt /> },
+  { name: "JavaScript", level: 92, icon: <FaJs /> },
+  { name: "React.js", level: 88, icon: <FaReact /> },
+  { name: "Tailwind CSS", level: 80, icon: <SiTailwindcss /> },
+  { name: "Next.js", level: 75, icon: <SiNextdotjs /> },
+];
 
 export function Experience() {
-  const techStack = [
-    {
-      name: "HTML",
-      experience: "Experienced",
-      img: "/portfolio/html5-logo.png",
-      alt: "HTML",
-    },
-    {
-      name: "CSS",
-      experience: "Experienced",
-      img: "/portfolio/css3-logo.webp",
-      alt: "CSS",
-    },
-    {
-      name: "Javascript",
-      experience: "Experienced",
-      img: "/portfolio/javascript-logo.png",
-      alt: "Javascript",
-    },
-    {
-      name: "React.js",
-      experience: "Experienced",
-      img: "/portfolio/react-logo.png",
-      alt: "React",
-    },
-    {
-      name: "Tailwind CSS",
-      experience: "Intermediate",
-      img: "/portfolio/tailwindcss.jpg",
-      alt: "Tailwind CSS",
-    },
-    {
-      name: "Next.js",
-      experience: "Intermediate",
-      img: "/portfolio/nextjs.jpg",
-      alt: "Next.js",
-    },
-  ];
-
   return (
     <section className="experience-section" id="experience">
-      <motion.div
-        className="experience-header"
+      <motion.h2
+        className="section-title"
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <p className="experience-subtitle">Explore My</p>
-        <h1 className="experience-title">Experience</h1>
-      </motion.div>
+        My <span>Expertise</span>
+      </motion.h2>
 
-      <motion.div
-        className="experience-content"
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1 }}
-        viewport={{ once: true }}
-      >
-        <h2 className="category-title">Frontend Development</h2>
-
-        <div className="tech-grid">
-          {techStack.map((tech, i) => (
-            <motion.div
-              key={i}
-              className="tech-card"
-              whileHover={{ scale: 1.05 }}
-              transition={{ type: "spring", stiffness: 200 }}
-            >
-              <img src={tech.img} alt={tech.alt} />
-              <div className="tech-info">
-                <h3>{tech.name}</h3>
-                <p>{tech.experience}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </motion.div>
+      <div className="skills-grid">
+        {skills.map((skill, i) => (
+          <motion.div
+            key={i}
+            className="skill-card"
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1, duration: 0.6 }}
+            whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(34,211,238,0.35)" }}
+          >
+            <div className="icon">{skill.icon}</div>
+            <h3>{skill.name}</h3>
+            <div className="radial-container">
+              <svg className="radial-progress" viewBox="0 0 36 36">
+                <path
+                  className="radial-bg"
+                  d="M18 2.0845
+                     a 15.9155 15.9155 0 0 1 0 31.831
+                     a 15.9155 15.9155 0 0 1 0 -31.831"
+                />
+                <path
+                  className="radial-fill"
+                  strokeDasharray={`${skill.level}, 100`}
+                  d="M18 2.0845
+                     a 15.9155 15.9155 0 0 1 0 31.831
+                     a 15.9155 15.9155 0 0 1 0 -31.831"
+                />
+                <text x="18" y="20.35">{skill.level}%</text>
+              </svg>
+            </div>
+          </motion.div>
+        ))}
+      </div>
     </section>
   );
 }

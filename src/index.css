@@ -1,3 +1,26 @@
+:root {
+  /* Backgrounds */
+  --bg-light: #fdf6f0;        /* Main cream-ish background */
+  --bg-section: #fff8f2;      /* Slightly warmer section background */
+  --bg-card: rgba(255, 255, 255, 0.8); /* Card / container with slight transparency */
+
+  /* Accents & Highlights */
+  --accent: #c28f5f;          /* Warm gold accent */
+  --accent-hover: #b5763f;    /* Darker gold for hover */
+
+  /* Text */
+  --text-dark: #2c2c2c;       /* Primary text */
+  --text-muted: #7a7a7a;      /* Secondary text */
+  --text-success: #4caf50;
+  --text-error: #e74c3c;
+
+  /* Borders & Shadows */
+  --border-light: rgba(0, 0, 0, 0.05);
+  --shadow-light: rgba(0, 0, 0, 0.05);
+  --shadow-hover: rgba(0, 0, 0, 0.15);
+}
+
+/* Global reset */
 * {
   margin: 0;
   padding: 0;
@@ -8,23 +31,40 @@ html {
   scroll-behavior: smooth;
 }
 
-:root {
-  --bg-dark: #0a0a0a;
-  --accent: #22d3ee;
-  --text-light: #f1f1f1;
-}
-
 body {
   font-family: "Poppins", sans-serif;
-  background: #0f172a;
-  color: var(--text-light);
+  background: var(--bg-light);
+  color: var(--text-dark);
   scroll-behavior: smooth;
 }
 
+/* Headings */
+h1, h2, h3, h4 {
+  color: var(--text-dark);
+  font-weight: 700;
+}
+
+/* Links & Buttons */
+a {
+  text-decoration: none;
+  color: var(--accent);
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--accent-hover);
+}
+
+/* Section Styling */
 section {
-  min-height: 100vh;
-  padding: 5rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  padding: 6rem 2rem;
+  background: var(--bg-section);
+}
+
+/* Button default */
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: all 0.3s ease;
 }

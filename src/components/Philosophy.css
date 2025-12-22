@@ -1,0 +1,118 @@
+.philosophy-section {
+  padding: 10rem 10vw;
+  background: #fdf6ed; /* Cream-ish premium tone */
+  color: #1a1a1a;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 5vw, 3rem);
+  font-weight: 800;
+  color: #1a1a1a;
+  margin-bottom: 5rem;
+}
+
+.section-title span {
+  color: #22d3ee;
+}
+
+/* Grid layout */
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 3rem;
+  justify-items: center;
+}
+
+/* Individual cards */
+.philosophy-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 2.5rem 1.8rem;
+  max-width: 280px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s ease;
+  text-align: center;
+}
+
+.philosophy-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.1);
+}
+
+/* Icon circle */
+.card-icon {
+  font-size: 3rem;
+  background: linear-gradient(135deg, #22d3ee, #3b82f6);
+  width: 80px;
+  height: 80px;
+  margin: 0 auto 1.5rem auto;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  box-shadow: 0 5px 15px rgba(34, 211, 238, 0.3);
+}
+
+/* Title and description */
+.philosophy-card h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #1a1a1a;
+}
+
+.philosophy-card p {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: rgba(26, 26, 26, 0.8);
+}
+
+/* Floating shapes behind cards (optional) */
+.philosophy-section::before,
+.philosophy-section::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+  z-index: 0;
+}
+
+.philosophy-section::before {
+  width: 300px;
+  height: 300px;
+  background: #22d3ee;
+  top: -50px;
+  left: -50px;
+}
+
+.philosophy-section::after {
+  width: 400px;
+  height: 400px;
+  background: #3b82f6;
+  bottom: -100px;
+  right: -80px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .philosophy-grid {
+    gap: 2rem;
+  }
+
+  .philosophy-card {
+    max-width: 100%;
+    padding: 2rem 1.2rem;
+  }
+
+  .card-icon {
+    width: 70px;
+    height: 70px;
+    font-size: 2.5rem;
+  }
+}

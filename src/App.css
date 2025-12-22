@@ -1,0 +1,15 @@
+.axis {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  width: 1px;
+  height: 100vh;
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgba(255,255,255,0.18),
+    transparent
+  );
+  pointer-events: none;
+  z-index: 1;
+}
