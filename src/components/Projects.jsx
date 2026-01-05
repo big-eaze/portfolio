@@ -7,6 +7,7 @@ const projects = [
     description:
       "A fully responsive SPA with CRUD functionality built with React, Express, and SQLite.",
     tech: ["React", "Express", "SQLite"],
+    status: "broken link",
     link: "http://ginkbow-shop-env.eba-wzppp4xt.eu-north-1.elasticbeanstalk.com/",
   },
   {
@@ -14,6 +15,7 @@ const projects = [
     description:
       "Responsive restaurant prototype with smooth navigation & modern UI using React, Tailwind, and Shadcn.",
     tech: ["React", "TailwindCSS", "Shadcn"],
+    status: "live",
     link: "https://restaurant-ten-sable.vercel.app",
   },
   {
@@ -21,13 +23,15 @@ const projects = [
     description:
       "Smart app suggesting outfit combinations with category-based matching logic and animations.",
     tech: ["React", "Tailwind", "Framer Motion"],
-    link: "https://vsa-roxy.vercel.app",
+    status: "live",
+    link: "https://vsa-rosy.vercel.app",
   },
   {
     title: "Real Estate Web App",
     description:
       "Property listing site with filters, search, and dynamic cards powered by Next.js and Supabase.",
     tech: ["Next.js", "ShadCN", "CSS"],
+    status: "live",
     link: "https://prime-sphere-real-estate.vercel.app",
   },
   {
@@ -35,8 +39,17 @@ const projects = [
     description:
       "Role-based (Admin, Student, Staff) management system built with React, Express, and SQLite.",
     tech: ["React", "Express", "Supabase"],
+    status: "live",
     link: "https://aurora-end.vercel.app/",
   },
+  {
+    title: "HIV/AIDS Awareness site",
+    description:
+      "Informative site on HIV/AIDS with resources, built using React and TailwindCSS.",
+    tech: ["React", "TailwindCSS"],
+    status: "live",
+    link: "https://saca-project.vercel.app/",
+  }
 ];
 
 export function Projects() {
@@ -72,14 +85,25 @@ export function Projects() {
                   </span>
                 ))}
               </div>
-              <a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn-project"
-              >
-                View Project
-              </a>
+              <div className="project-header">
+                <span
+                  className={`status-badge ${project.status}`}
+                  title={project.status === "broken" ? "Project currently unavailable" : "Live project"}
+                >
+                  <span className="status-dot" />
+                  {project.status}
+                </span>
+
+
+                <a
+                  href={project.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn-project"
+                >
+                  View Project
+                </a>
+              </div>
             </div>
           </motion.div>
         ))}

@@ -15,7 +15,7 @@ export function Navbar() {
     <nav className={`navbar ${scrolled ? "scrolled" : ""}`}>
       <div className="nav-container">
         <a href="#home" className="nav-logo">
-          <span className="logo-accent">I</span>OJ
+          <span className="logo-accent">I</span>SR
         </a>
 
         <div className={`nav-links ${menuOpen ? "open" : ""}`}>
