@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact } from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs } from "react-icons/si";
+import { SiTailwindcss, SiNextdotjs, SiTypescript } from "react-icons/si";
 import "./Experience.css";
 
 const skills = [
@@ -8,6 +8,7 @@ const skills = [
   { name: "CSS", level: 90, icon: <FaCss3Alt /> },
   { name: "JavaScript", level: 92, icon: <FaJs /> },
   { name: "React.js", level: 88, icon: <FaReact /> },
+  { name: "TypeScript", level: 70, icon: <SiTypescript /> },
   { name: "Tailwind CSS", level: 80, icon: <SiTailwindcss /> },
   { name: "Next.js", level: 75, icon: <SiNextdotjs /> },
 ];

@@ -40,6 +40,10 @@ const projects = [
       "Role-based (Admin, Student, Staff) management system built with React, Express, and SQLite.",
     tech: ["React", "Express", "Supabase"],
     status: "live",
+    loginDetails: {
+      username: "jahman1092",
+      password: "Israel1021@"
+    },
     link: "https://aurora-end.vercel.app/",
   },
   {
@@ -85,6 +89,16 @@ export function Projects() {
                   </span>
                 ))}
               </div>
+              {
+                project.loginDetails && (
+                  <div className="login-details">
+                    <h4>Login Details:</h4>
+                    <div>
+                      <p>Username: {project.loginDetails.username}</p>
+                      <p>Password: {project.loginDetails.password}</p>
+                    </div>
+                  </div>
+                )}
               <div className="project-header">
                 <span
                   className={`status-badge ${project.status}`}

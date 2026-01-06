@@ -152,13 +152,10 @@
   transition: transform 0.2s ease;
 }
 
-
-
-
-.project-header a {
-  text-decoration: underline;
-  text-underline-offset: 0.4rem;
-  font-weight: 600;
+.projects-editorial {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 
