@@ -5,10 +5,10 @@ const projects = [
   {
     title: "E-commerce Website",
     description:
-      "A fully responsive SPA with CRUD functionality built with React, Express, and SQLite.",
-    tech: ["React", "Express", "SQLite"],
-    status: "broken link",
-    link: "http://ginkbow-shop-env.eba-wzppp4xt.eu-north-1.elasticbeanstalk.com/",
+      "A fully responsive SPA with CRUD functionality built with React, Express, and supabase.",
+    tech: ["React", "tailwind", "Supabase"],
+    status: "live",
+    link: "http://ginkbow.vercel.app",
   },
   {
     title: "Restaurant Web App",
