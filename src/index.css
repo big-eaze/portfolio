@@ -1,16 +1,23 @@
 :root {
   /* Backgrounds */
-  --bg-light: #fdf6f0;        /* Main cream-ish background */
-  --bg-section: #fff8f2;      /* Slightly warmer section background */
-  --bg-card: rgba(255, 255, 255, 0.8); /* Card / container with slight transparency */
+  --bg-light: #fdf6f0;
+  /* Main cream-ish background */
+  --bg-section: #fff8f2;
+  /* Slightly warmer section background */
+  --bg-card: rgba(255, 255, 255, 0.8);
+  /* Card / container with slight transparency */
 
   /* Accents & Highlights */
-  --accent: #c28f5f;          /* Warm gold accent */
-  --accent-hover: #b5763f;    /* Darker gold for hover */
+  --accent: #c28f5f;
+  /* Warm gold accent */
+  --accent-hover: #b5763f;
+  /* Darker gold for hover */
 
   /* Text */
-  --text-dark: #2c2c2c;       /* Primary text */
-  --text-muted: #7a7a7a;      /* Secondary text */
+  --text-dark: #2c2c2c;
+  /* Primary text */
+  --text-muted: #7a7a7a;
+  /* Secondary text */
   --text-success: #4caf50;
   --text-error: #e74c3c;
 
@@ -38,8 +45,25 @@ body {
   scroll-behavior: smooth;
 }
 
+.section-label {
+  display: inline-block;
+  padding: 0.5rem 1.25rem;
+  background: rgba(34, 211, 238, 0.1);
+  border: 1px solid rgba(34, 211, 238, 0.2);
+  border-radius: 999px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #22d3ee;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  width: fit-content;
+}
+
 /* Headings */
-h1, h2, h3, h4 {
+h1,
+h2,
+h3,
+h4 {
   color: var(--text-dark);
   font-weight: 700;
 }

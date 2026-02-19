@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact } from "react-icons/fa";
 import { SiTailwindcss, SiNextdotjs, SiTypescript } from "react-icons/si";
 import "./Experience.css";
+import { BsWordpress } from "react-icons/bs";
 
 const skills = [
   { name: "HTML", level: 95, icon: <FaHtml5 /> },
@@ -10,21 +11,26 @@ const skills = [
   { name: "React.js", level: 88, icon: <FaReact /> },
   { name: "TypeScript", level: 70, icon: <SiTypescript /> },
   { name: "Tailwind CSS", level: 80, icon: <SiTailwindcss /> },
-  { name: "Next.js", level: 75, icon: <SiNextdotjs /> },
+  { name: "Next.js", level: 86, icon: <SiNextdotjs /> },
+  { name: "Wordpress", level: 78, icon: <BsWordpress /> }
 ];
 
 export function Experience() {
   return (
     <section className="experience-section" id="experience">
-      <motion.h2
-        className="section-title"
+
+      <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
+        className="section-header"
       >
-        My <span>Expertise</span>
-      </motion.h2>
+        <div className="section-badge">Who I am</div>
+        <h2 className="section-title">
+          My <span className="gradient-text">Expertise</span>
+        </h2>
+      </motion.div>
 
       <div className="skills-grid">
         {skills.map((skill, i) => (

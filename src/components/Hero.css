@@ -58,6 +58,7 @@
 
 .hero-cta:hover {
   background: var(--accent-hover);
+  color: white;
   transform: translateY(-2px);
   box-shadow: 0 8px 30px var(--shadow-hover);
 }

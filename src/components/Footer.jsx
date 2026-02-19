@@ -1,8 +1,8 @@
 import "./Footer.css";
 import { motion } from "framer-motion";
 import { X } from 'lucide-react';
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
-import { FaXTwitter } from 'react-icons/fa6';
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaXTwitter, FaTiktok } from "react-icons/fa6";
 
 export function Footer() {
   return (
@@ -32,14 +32,18 @@ export function Footer() {
             <FaLinkedin />
           </a>
           <a
-            href="mailto:israelojeleye44@gmail.com"
+            href="https://www.tiktok.com/@isr_oj"
             className="social-link"
+            target="_blank"
+            rel="noreferrer"
           >
-            <FaEnvelope />
+            <FaTiktok />
           </a>
           <a
             href="https://x.com/realisr12"
             className="social-link"
+            target="_blank"
+            rel="noreferrer"
           >
             <FaXTwitter />
           </a>

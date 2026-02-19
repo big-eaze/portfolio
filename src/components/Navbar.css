@@ -3,17 +3,44 @@
   position: fixed;
   top: 0;
   width: 100%;
-  padding: 1rem 2rem;
+  padding: 1.4rem 2rem;
   z-index: 1000;
   display: flex;
   justify-content: center;
+
+  transition:
+    padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    background 0.4s ease,
+    box-shadow 0.4s ease,
+    backdrop-filter 0.4s ease,
+    transform 0.4s ease;
 }
 
-.navbar.scrolled {
-  background: var(--bg-light);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(10px);
+
+.navbar {
+  animation: navReveal 0.8s ease forwards;
 }
+
+@keyframes navReveal {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.navbar.scrolled {
+  padding: 0.75rem 2rem;
+  background: rgba(255, 248, 242, 0.85);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 10px 35px rgba(0, 0, 0, 0.08);
+  transform: translateY(0);
+}
+
 
 /* Container */
 .nav-container {

@@ -7,6 +7,7 @@
 }
 
 .section-title {
+  
   font-size: clamp(2.5rem, 5vw, 3.5rem);
   font-weight: 800;
   margin-bottom: 5rem;
@@ -23,6 +24,7 @@
   gap: 3rem;
   justify-items: center;
 }
+
 
 .skill-card {
   backdrop-filter: blur(12px);
@@ -93,7 +95,7 @@
 /* Responsive */
 @media (max-width: 768px) {
   .experience-section {
-    padding: 8rem 5vw;
+    padding: 2rem 5vw;
   }
 
   .skill-card {
