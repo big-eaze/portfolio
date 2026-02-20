@@ -5,6 +5,7 @@ import outfitMat from "../assets/outfit-matcher.png";
 import primeSphere from "../assets/prime-sphere.png";
 import saca from "../assets/saca-project.png";
 import aurora from "../assets/aurora.png";
+import restu from "../assets/restu.png";
 import "./Projects.css";
 
 const projects = [
@@ -13,16 +14,17 @@ const projects = [
     image: eCom,
     description:
       "A fully responsive SPA with CRUD functionality built with React, Express, and supabase.",
-    tech: ["React", "tailwind", "Supabase"],
+    tech: ["React", "tailwind", "Supabase", "framer-motion"],
     status: "live",
     link: "http://ginkbow.vercel.app",
     accent: "#22d3ee"
   },
   {
     title: "Restaurant Web App",
+    image: restu,
     description:
       "Responsive restaurant prototype with smooth navigation & modern UI using React, Tailwind, and Shadcn.",
-    tech: ["React", "TailwindCSS", "Shadcn"],
+    tech: ["React", "TailwindCSS", "Shadcn", "framer-motion"],
     status: "live",
     link: "https://restaurant-ten-sable.vercel.app",
     accent: "#f59e0b"
@@ -32,7 +34,7 @@ const projects = [
     image: outfitMat,
     description:
       "Smart app suggesting outfit combinations with category-based matching logic and animations.",
-    tech: ["React", "Tailwind", "Framer Motion"],
+    tech: ["React", "Tailwind", "Framer Motion", "firebase"],
     status: "live",
     link: "https://vsa-rosy.vercel.app",
     accent: "#8b5cf6"

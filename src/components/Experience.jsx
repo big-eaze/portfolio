@@ -26,7 +26,7 @@ export function Experience() {
         viewport={{ once: true }}
         className="section-header"
       >
-        <div className="section-badge">Who I am</div>
+        <div className="section-badge">Mastery</div>
         <h2 className="section-title">
           My <span className="gradient-text">Expertise</span>
         </h2>
