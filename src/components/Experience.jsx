@@ -1,24 +1,24 @@
 import { motion } from "framer-motion";
 import { FaHtml5, FaCss3Alt, FaJs, FaReact } from "react-icons/fa";
 import { SiTailwindcss, SiNextdotjs, SiTypescript } from "react-icons/si";
-import "./Experience.css";
 import { BsWordpress } from "react-icons/bs";
+import "./Experience.css";
 
 const skills = [
-  { name: "HTML", level: 95, icon: <FaHtml5 /> },
-  { name: "CSS", level: 90, icon: <FaCss3Alt /> },
-  { name: "JavaScript", level: 92, icon: <FaJs /> },
-  { name: "React.js", level: 88, icon: <FaReact /> },
-  { name: "TypeScript", level: 70, icon: <SiTypescript /> },
-  { name: "Tailwind CSS", level: 80, icon: <SiTailwindcss /> },
-  { name: "Next.js", level: 86, icon: <SiNextdotjs /> },
-  { name: "Wordpress", level: 78, icon: <BsWordpress /> }
+  { name: "HTML",        icon: <FaHtml5 />,        },
+  { name: "CSS",         icon: <FaCss3Alt />,       },
+  { name: "JavaScript",  icon: <FaJs />,            },
+  { name: "React.js",    icon: <FaReact />,         },
+  { name: "TypeScript",  icon: <SiTypescript />,    },
+  { name: "Tailwind CSS",icon: <SiTailwindcss />,   },
+  { name: "Next.js",     icon: <SiNextdotjs />,      },
+  { name: "WordPress",   icon: <BsWordpress />,     },
+  {name: "React Native" , icon: <FaReact />,         },
 ];
 
 export function Experience() {
   return (
     <section className="experience-section" id="experience">
-
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -39,29 +39,17 @@ export function Experience() {
             className="skill-card"
             initial={{ opacity: 0, y: 40 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1, duration: 0.6 }}
-            whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(34,211,238,0.35)" }}
+            transition={{ delay: i * 0.08, duration: 0.5 }}
+            viewport={{ once: true }}
+            whileHover={{ y: -6, scale: 1.03 }}
           >
-            <div className="icon">{skill.icon}</div>
-            <h3>{skill.name}</h3>
-            <div className="radial-container">
-              <svg className="radial-progress" viewBox="0 0 36 36">
-                <path
-                  className="radial-bg"
-                  d="M18 2.0845
-                     a 15.9155 15.9155 0 0 1 0 31.831
-                     a 15.9155 15.9155 0 0 1 0 -31.831"
-                />
-                <path
-                  className="radial-fill"
-                  strokeDasharray={`${skill.level}, 100`}
-                  d="M18 2.0845
-                     a 15.9155 15.9155 0 0 1 0 31.831
-                     a 15.9155 15.9155 0 0 1 0 -31.831"
-                />
-                <text x="18" y="20.35">{skill.level}%</text>
-              </svg>
+            <div className="skill-icon-wrap">
+              <span className="skill-icon">
+                {skill.icon}
+              </span>
             </div>
+            <h3>{skill.name}</h3>
+            <span className="skill-dot" />
           </motion.div>
         ))}
       </div>

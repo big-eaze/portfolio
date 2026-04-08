@@ -51,11 +51,11 @@ export function Hero() {
   }, []);
 
   return (
-    <section className="hero-section"  id="home">
+    <section className="hero-section" id="home">
       <canvas ref={canvasRef} />
       <div className="hero-content">
-        <h1>We Craft Digital Experiences</h1>
-        <p>Turning creative ideas into smooth, interactive, and visually appealing web experiences.</p>
+        <h1>I Craft Digital Experiences</h1>
+        <p>From concept to launch, I create web and mobile applications that deliver smooth, interactive, and visually engaging user experiences</p>
         <a href="#about" className="hero-cta">Learn More</a>
       </div>
     </section>

@@ -49,18 +49,18 @@ export function About() {
 
           <motion.div className="about-text" variants={itemVariants}>
             <p className="lead-text">
-              I'm a <strong>Frontend Developer</strong> with a passion for turning creative ideas
-              into smooth, interactive, and visually appealing web experiences.
+              I'm a <strong>Frontend & Mobile Developer</strong> passionate about turning creative ideas
+              into smooth, interactive, and visually engaging web and mobile experiences.
             </p>
             <p>
-              I love crafting clean interfaces, writing maintainable code, and bringing digital
+              I enjoy crafting clean interfaces, writing maintainable code, and bringing digital
               products to life through thoughtful design and motion. My focus is on building
-              high-performance, responsive, and accessible applications using modern technologies
-              like <strong>React</strong>, <strong>JavaScript</strong>, and <strong>CSS</strong>.
+              high-performance, responsive, and accessible applications across web and mobile
+              platforms using modern technologies like <strong>React</strong>, <strong>React Native</strong>, <strong>JavaScript</strong>, <strong>Next.js</strong>, and <strong>CSS</strong>.
             </p>
             <p>
               I'm constantly exploring new tools and trends to stay ahead and improve how people
-              interact with the web.
+              interact with digital products.
             </p>
           </motion.div>
 
