@@ -7,6 +7,7 @@ import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import "./App.css";
 import { ScrollProvider } from "./ScrollController";
+import { Services } from "./components/Services";
 
 
 
@@ -17,6 +18,7 @@ function App() {
       <Navbar />
       <Hero />
       <About />
+      <Services />
       <Experience />
       <Projects />
       <Contact />

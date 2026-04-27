@@ -49,7 +49,8 @@ export function About() {
 
           <motion.div className="about-text" variants={itemVariants}>
             <p className="lead-text">
-              I'm a <strong>Frontend & Mobile Developer</strong> passionate about turning creative ideas
+              <span>I'm <strong>Israel</strong>, </span>
+              a <strong>Frontend & Mobile Developer</strong> passionate about turning creative ideas
               into smooth, interactive, and visually engaging web and mobile experiences.
             </p>
             <p>

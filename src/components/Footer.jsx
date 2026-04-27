@@ -1,7 +1,7 @@
 import "./Footer.css";
 import { motion } from "framer-motion";
 import { X } from 'lucide-react';
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
 import { FaXTwitter, FaTiktok } from "react-icons/fa6";
 
 export function Footer() {
@@ -46,6 +46,15 @@ export function Footer() {
             rel="noreferrer"
           >
             <FaXTwitter />
+          </a>
+
+          <a
+            href="https://wa.me/2347067459884"
+            className="social-link"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <FaWhatsapp />
           </a>
 
 

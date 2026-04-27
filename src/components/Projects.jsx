@@ -10,7 +10,7 @@ import "./Projects.css";
 
 const projects = [
   {
-    title: "E-commerce Website",
+    title: "Ginkbow E-commerce",
     image: eCom,
     description:
       "A fully responsive SPA with CRUD functionality built with React, Express, and supabase.",
@@ -20,7 +20,7 @@ const projects = [
     accent: "#22d3ee"
   },
   {
-    title: "Restaurant Web App",
+    title: "Spice!Route",
     image: restu,
     description:
       "Responsive restaurant prototype with smooth navigation & modern UI using React, Tailwind, and Shadcn.",
@@ -30,7 +30,7 @@ const projects = [
     accent: "#f59e0b"
   },
   {
-    title: "Outfit Matcher",
+    title: "Virtual Styling Assistant(VSA)",
     image: outfitMat,
     description:
       "Smart app suggesting outfit combinations with category-based matching logic and animations.",
@@ -40,7 +40,7 @@ const projects = [
     accent: "#8b5cf6"
   },
   {
-    title: "Real Estate Web App",
+    title: "Prime Sphere Real Estate",
     image: primeSphere,
     description:
       "Property listing site with filters, search, and dynamic cards powered by Next.js and Supabase.",
@@ -50,7 +50,7 @@ const projects = [
     accent: "#ec4899"
   },
   {
-    title: "School Management App",
+    title: "Aurora School Management",
     image: aurora,
     description:
       "Role-based (Admin, Student, Staff) management system built with React, Express, and SQLite.",
@@ -64,7 +64,7 @@ const projects = [
     accent: "#10b981"
   },
   {
-    title: "HIV/AIDS Awareness site",
+    title: "HIV/AIDS Awareness(SACA)",
     image: saca,
     description:
       "Informative site on HIV/AIDS with resources, built using React and TailwindCSS.",
