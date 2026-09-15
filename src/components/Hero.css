@@ -1,83 +1,263 @@
-/* Hero.css */
-.hero-section {
+.hero {
   position: relative;
-  height: 100vh;
+  width: 100%;
+  min-height: 100svh;
+  background: #F7EADA;
   overflow: hidden;
-  background: var(--bg-light);
-  /* cream background */
+  display: flex;
+  flex-direction: column;
 }
 
-.hero-section canvas {
+.hero-card {
+  position: relative;
+  width: 100%;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* Background Slider Container (Full Width) */
+.hero-slider-container {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   width: 100%;
   height: 100%;
-  z-index: 1;
-  opacity: 0.3;
-  /* subtle canvas animation */
+  z-index: 0;
 }
 
-.hero-content {
+.hero-slide-item {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-slide-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Keeps the Unsplash vectors vivid, bold, and fully saturated */
+  filter: saturate(1.18) contrast(1.06) brightness(0.72);
+  transform-origin: center center;
+}
+
+/* Soft, ambient vignette overlay that leaves the center clear and vibrant */
+.hero-slide-overlay {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(5, 9, 18, 0.64) 0%, rgba(5, 9, 18, 0.18) 24%, rgba(5, 9, 18, 0.2) 66%, rgba(5, 9, 18, 0.7) 100%),
+    radial-gradient(circle at center, rgba(18, 18, 18, 0.16) 0%, rgba(18, 18, 18, 0.62) 100%);
+}
+
+/* Central Content Layout */
+.hero-main-content {
   position: relative;
   z-index: 2;
-  height: 100%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  padding-left: 10vw;
-  color: var(--text-dark);
+  align-items: center;
+  text-align: center;
+  padding: 120px 24px 80px;
+  max-width: 860px;
+  margin: 0 auto;
 }
 
-.hero-content h1 {
-  font-size: clamp(3rem, 8vw, 6rem);
-  font-weight: 900;
-  line-height: 1.1;
-  max-width: 700px;
-  color: var(--text-dark);
+/* Frosted Glass Container to isolate text from bold backgrounds gracefully */
+.hero-content-glass-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
-.hero-content p {
-  margin-top: 1.5rem;
-  font-size: 1.25rem;
-  color: var(--text-muted);
+.hero-badge-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #f1f1f1;
+  margin-bottom: 24px;
 }
 
-.hero-cta {
-  margin-top: 2rem;
-  padding: 1rem 2.5rem;
-  border-radius: 50px;
+.hero-badge-pill span {
+  width: 6px;
+  height: 6px;
   background: var(--accent);
-  color: var(--text-light);
+  border-radius: 50%;
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.hero-main-title {
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(38px, 5.6vw, 78px);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: -0.055em;
+  color: #fff;
+  margin-bottom: 20px;
+  text-wrap: balance;
+}
+
+.hero-main-title span {
+  color: var(--accent);
+  display: inline-block;
+  font-weight: 800;
+}
+
+.hero-desc-text {
+  font-size: clamp(15px, 1.4vw, 17px);
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 580px;
+  margin-bottom: 36px;
+}
+
+.hero-actions-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.hero-btn-primary {
+  background: #fff;
+  color: #111;
+  padding: 14px 32px;
+  border-radius: 999px;
   font-weight: 600;
-  text-decoration: none;
-  box-shadow: 0 4px 20px var(--shadow-light);
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.hero-btn-primary:hover {
+  background: var(--accent);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.hero-btn-outline {
+  background: transparent;
+  color: #fff;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
+}
+
+.hero-btn-outline:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-soft);
+  transform: translateY(-2px);
+}
+
+/* Social Icon Cluster */
+.hero-social-cluster {
+  display: flex;
+  gap: 16px;
+}
+
+.hero-social-cluster a {
+  width: 44px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #fff;
+  font-size: 16px;
   transition: all 0.3s ease;
 }
 
-.hero-cta:hover {
-  background: var(--accent-hover);
-  color: white;
+.hero-social-cluster a:hover {
+  background: var(--accent);
+  border-color: var(--accent);
   transform: translateY(-2px);
-  box-shadow: 0 8px 30px var(--shadow-hover);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .hero-content {
-    align-items: center;
+.hero-slide-control {
+  position: absolute;
+  z-index: 4;
+  right: clamp(24px, 5vw, 72px);
+  bottom: clamp(28px, 5vh, 52px);
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: "Poppins", sans-serif;
+}
+
+.hero-slide-count {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+}
+
+.hero-slide-count i {
+  color: rgba(255, 255, 255, 0.5);
+  font-style: normal;
+  font-weight: 500;
+}
+
+.hero-slide-dots {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+.hero-slide-dots button {
+  width: 28px;
+  height: 3px;
+  padding: 0;
+  background: rgba(255, 255, 255, 0.34);
+  transition: width 0.45s ease, background 0.35s ease;
+}
+
+.hero-slide-dots button.active {
+  width: 54px;
+  background: var(--accent);
+}
+
+.hero-slide-dots button:hover { background: #fff; }
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .hero-content-glass-box {
+    padding: 24px 16px;
+  }
+  .hero-actions-row {
+    flex-direction: column;
+    width: 100%;
+  }
+  .hero-btn-primary, .hero-btn-outline {
+    width: 100%;
     text-align: center;
-    padding-left: 5vw;
-    padding-right: 5vw;
   }
+  .hero-slide-control {
+    right: 24px;
+    bottom: 24px;
+  }
+  .hero-slide-dots button { width: 20px; }
+  .hero-slide-dots button.active { width: 38px; }
+}
 
-  .hero-content h1 {
-    max-width: 100%;
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
-  }
-
-  .hero-cta {
-    padding: 0.9rem 2rem;
-  }
+@media (prefers-reduced-motion: reduce) {
+  .hero-slide-item { transition: none; }
+  .hero-slide-dots button { transition: none; }
 }

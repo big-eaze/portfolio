@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 680" fill="none">
+  <rect width="520" height="680" fill="#3E2D25"/>
+  <circle cx="260" cy="245" r="105" fill="#5A463C"/>
+  <path d="M85 680c28-160 105-250 175-250s147 90 175 250z" fill="#5A463C"/>
+  <text x="260" y="600" text-anchor="middle" font-family="Inter, sans-serif" font-size="13" fill="#9A8A7E" letter-spacing="3" opacity="0.7">YOUR PORTRAIT</text>
+</svg>

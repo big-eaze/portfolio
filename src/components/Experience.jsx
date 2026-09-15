@@ -1,57 +1,74 @@
 import { motion } from "framer-motion";
-import { FaHtml5, FaCss3Alt, FaJs, FaReact } from "react-icons/fa";
-import { SiTailwindcss, SiNextdotjs, SiTypescript } from "react-icons/si";
-import { BsWordpress } from "react-icons/bs";
 import "./Experience.css";
 
-const skills = [
-  { name: "HTML",        icon: <FaHtml5 />,        },
-  { name: "CSS",         icon: <FaCss3Alt />,       },
-  { name: "JavaScript",  icon: <FaJs />,            },
-  { name: "React.js",    icon: <FaReact />,         },
-  { name: "TypeScript",  icon: <SiTypescript />,    },
-  { name: "Tailwind CSS",icon: <SiTailwindcss />,   },
-  { name: "Next.js",     icon: <SiNextdotjs />,      },
-  { name: "WordPress",   icon: <BsWordpress />,     },
-  {name: "React Native" , icon: <FaReact />,         },
+const stack = [
+  "JavaScript",
+  "TypeScript",
+  "Python",
+  "React.js",
+  "React Native",
+  "Next.js",
+  "Tailwind CSS",
+  "HTML",
+  "CSS",
+  "WordPress",
 ];
 
 export function Experience() {
   return (
-    <section className="experience-section" id="experience">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="section-header"
-      >
-        <div className="section-badge">Mastery</div>
-        <h2 className="section-title">
-          My <span className="gradient-text">Expertise</span>
-        </h2>
-      </motion.div>
+    <section className="tech-strip" id="services" aria-label="Technology stack">
+      {/* Edge-to-Edge Leaf Pattern Framing & Glow */}
+      <div className="tech-vector-bg" aria-hidden="true">
+        <div className="tech-vector-glow"></div>
+      </div>
 
-      <div className="skills-grid">
-        {skills.map((skill, i) => (
+      <div className="shell tech-shell">
+        <div className="tech-grid-layout">
+          {/* Left Column: Heading & Philosophy */}
           <motion.div
-            key={i}
-            className="skill-card"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.08, duration: 0.5 }}
-            viewport={{ once: true }}
-            whileHover={{ y: -6, scale: 1.03 }}
+            className="tech-header-block"
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.7 }}
           >
-            <div className="skill-icon-wrap">
-              <span className="skill-icon">
-                {skill.icon}
-              </span>
-            </div>
-            <h3>{skill.name}</h3>
-            <span className="skill-dot" />
+            <span className="section-eyebrow">Tech Stack &amp; Tools</span>
+            <h2 className="tech-count">
+              14 tools<span className="tech-slash"> / </span>01 approach
+            </h2>
+            <p className="tech-intro-text">
+              Interfaces are built with the right tool for the feeling, not the loudest tool in the room. 
+              Every framework and library is chosen for performance, scalability, and seamless motion experience.
+            </p>
           </motion.div>
-        ))}
+
+          {/* Right Column: Floating Interactive Pill Orbit */}
+          <motion.div
+            className="tech-orbit"
+            aria-label="Tools and technologies"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-60px" }}
+            variants={{
+              hidden: {},
+              visible: { transition: { staggerChildren: 0.05 } },
+            }}
+          >
+            {stack.map((tech, idx) => (
+              <motion.div
+                className={`tech-item ${idx === 0 ? "featured-tech" : ""}`}
+                key={tech}
+                variants={{
+                  hidden: { opacity: 0, scale: 0.9, y: 15 },
+                  visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.5 } },
+                }}
+              >
+                <span className="tech-dot" aria-hidden="true"></span>
+                {tech}
+              </motion.div>
+            ))}
+          </motion.div>
+        </div>
       </div>
     </section>
   );

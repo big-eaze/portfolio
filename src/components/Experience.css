@@ -1,134 +1,180 @@
-.experience-section {
-  padding: 10rem 10vw;
-  color: var(--text-dark);
-  text-align: center;
-  background: var(--bg-light);
-}
-
-.section-badge {
-  display: inline-block;
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--accent);
-  background: rgba(34, 211, 238, 0.12);
-  border: 1px solid rgba(34, 211, 238, 0.25);
-  border-radius: 20px;
-  padding: 4px 14px;
-  margin-bottom: 14px;
-}
-
-.section-title {
-  font-size: clamp(2.5rem, 5vw, 3.5rem);
-  font-weight: 800;
-  margin-bottom: 4rem;
-  color: var(--text-dark);
-}
-
-.section-title .gradient-text {
-  color: var(--accent);
-}
-
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 3rem;
-  justify-items: center;
-}
-
-.skill-card {
-  backdrop-filter: blur(12px);
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 18px;
-  padding: 2rem 1.5rem;
+.tech-strip {
+  position: relative;
   width: 100%;
-  max-width: 260px;
-  border: 1px solid rgba(34, 211, 238, 0.3);
-  transition: all 0.4s ease;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 0 8px 20px rgba(34, 211, 238, 0.1);
+  background: #FAF8F5; /* Extracted warm cream background from your image */
+  padding: 120px 0;
+  overflow: hidden;
 }
 
-.skill-card::before {
-  content: '';
+/* Edge-to-Edge Extreme Left & Right Leaf Pattern Framing */
+.tech-vector-bg {
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 0%,
-      rgba(34, 211, 238, 0.12) 0%,
-      transparent 70%);
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
+  z-index: 1;
 }
 
-.skill-card:hover::before {
-  opacity: 1;
+/* Left Extreme Decorative Leaf/Flora Motif */
+.tech-vector-bg::before {
+  content: "";
+  position: absolute;
+  top: 10%;
+  left: -20px;
+  width: 140px;
+  height: 80%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 300' fill='%23e67300' opacity='0.15'%3E%3Cpath d='M20,50 Q40,30 60,60 Q80,90 50,110 Q20,130 10,90 Z'/%3E%3Cpath d='M10,180 Q30,160 50,190 Q70,220 40,240 Q10,260 5,210 Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.skill-card:hover {
-  box-shadow: 0 12px 32px rgba(34, 211, 238, 0.3);
-  border-color: var(--accent);
-  background: rgba(34, 211, 238, 0.06);
+/* Right Extreme Decorative Leaf/Flora Motif */
+.tech-vector-bg::after {
+  content: "";
+  position: absolute;
+  bottom: 10%;
+  right: -20px;
+  width: 140px;
+  height: 80%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 300' fill='%23d94e24' opacity='0.15'%3E%3Cpath d='M80,50 Q60,30 40,60 Q20,90 50,110 Q80,130 90,90 Z'/%3E%3Cpath d='M90,180 Q70,160 50,190 Q30,220 60,240 Q90,260 95,210 Z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
 }
 
-.skill-icon-wrap {
-  width: 60px;
-  height: 60px;
-  border-radius: 16px;
-  background: rgba(34, 211, 238, 0.1);
-  border: 1px solid rgba(34, 211, 238, 0.2);
-  display: flex;
+/* Warm Atmospheric Amber Glow */
+.tech-vector-glow {
+  position: absolute;
+  top: 50%;
+  right: 15%;
+  transform: translateY(-50%);
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(230, 115, 0, 0.08) 0%, transparent 70%);
+  filter: blur(50px);
+}
+
+.tech-shell {
+  position: relative;
+  z-index: 2;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Asymmetric Grid Layout */
+.tech-grid-layout {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 60px;
   align-items: center;
-  justify-content: center;
-  margin-bottom: 1rem;
+}
+
+.tech-header-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.section-eyebrow {
+  display: inline-block;
+  color: #e67300; /* Autumn Orange */
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+}
+
+.tech-count {
+  font-family: var(--font-serif, serif);
+  font-size: clamp(36px, 4.5vw, 56px);
+  font-weight: 600;
+  color: #2b2118; /* Deep rich brown for readability on cream */
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 24px;
+}
+
+.tech-slash {
+  color: #e67300;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.tech-intro-text {
+  font-size: 16px;
+  line-height: 1.7;
+  color: rgba(43, 33, 24, 0.75);
+  max-width: 460px;
+}
+
+/* Tech Orbit / Tag Cloud Container */
+.tech-orbit {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Individual Glass Pill Item (Adapted for warm cream theme) */
+.tech-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(230, 115, 0, 0.18);
+  border-radius: 999px;
+  color: #2b2118;
+  font-size: 14px;
+  font-weight: 500;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  cursor: default;
+}
+
+.tech-dot {
+  width: 6px;
+  height: 6px;
+  background: rgba(43, 33, 24, 0.3);
+  border-radius: 50%;
   transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
-.skill-card:hover .skill-icon-wrap {
-  background: rgba(34, 211, 238, 0.18);
-  box-shadow: 0 0 18px rgba(34, 211, 238, 0.22);
+/* Hover styling */
+.tech-item:hover {
+  background: rgba(230, 115, 0, 0.1);
+  border-color: #e67300;
+  color: #e67300;
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(230, 115, 0, 0.12);
 }
 
-.skill-icon {
-  font-size: 28px;
-  line-height: 1;
-  display: flex;
-   color: var(--accent);
+.tech-item:hover .tech-dot {
+  background: #e67300;
+  box-shadow: 0 0 10px #e67300;
 }
 
-.skill-card h3 {
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--text-dark);
-  margin: 0;
+/* Featured Primary Item Styling */
+.featured-tech {
+  background: rgba(230, 115, 0, 0.12);
+  border-color: rgba(230, 115, 0, 0.35);
+  color: #2b2118;
 }
 
-.skill-dot {
-  display: block;
-  width: 5px;
-  height: 5px;
-  border-radius: 50%;
-  background: var(--accent);
-  margin-top: 10px;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+.featured-tech .tech-dot {
+  background: #e67300;
+  box-shadow: 0 0 8px #e67300;
 }
 
-.skill-card:hover .skill-dot {
-  opacity: 1;
-}
-
-@media (max-width: 768px) {
-  .experience-section {
-    padding: 4rem 5vw;
+/* Responsive Breakdown */
+@media (max-width: 960px) {
+  .tech-grid-layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
-
-  .skills-grid {
-    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
-    gap: 1rem;
+  .tech-intro-text {
+    max-width: 100%;
   }
 }

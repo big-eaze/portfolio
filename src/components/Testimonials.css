@@ -1,0 +1,102 @@
+.testimonials {
+  padding: 130px 0 80px;
+  background: var(--bg-alt);
+  overflow: hidden;
+}
+
+.testimonials-head {
+  margin-bottom: 64px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 20px;
+}
+
+.tst-card {
+  grid-column: span 4;
+  position: relative;
+  min-height: 300px;
+  background: var(--bg-surface);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  box-shadow: 0 18px 45px rgba(26, 23, 21, 0.045);
+  padding: 32px 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.tst-card:nth-child(1) { grid-column: span 5; }
+.tst-card:nth-child(2) { grid-column: span 7; }
+.tst-card:nth-child(3) { grid-column: span 4; transform: translateY(24px); }
+.tst-card:nth-child(4) { grid-column: span 4; transform: translateY(24px); }
+.tst-card:nth-child(5) { grid-column: span 4; transform: translateY(24px); }
+
+.tst-quote-icon {
+  color: var(--accent);
+  opacity: 0.2;
+  margin-bottom: -8px;
+}
+
+.tst-index {
+  color: var(--accent);
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  font-weight: 600;
+}
+
+.tst-card:hover {
+  border-color: var(--accent-border);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 48px rgba(26, 23, 21, 0.06);
+}
+
+.tst-card:nth-child(1), .tst-card:nth-child(2) { background: var(--bg-alt); }
+
+.tst-card:nth-child(3):hover,
+.tst-card:nth-child(4):hover,
+.tst-card:nth-child(5):hover {
+  transform: translateY(calc(24px - 4px));
+}
+
+.tst-stars {
+  display: flex;
+  gap: 3px;
+  color: var(--accent);
+}
+
+.tst-card blockquote {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--text);
+  flex: 1;
+}
+
+.tst-card figcaption {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  border-top: 1px solid var(--line);
+  padding-top: 16px;
+}
+
+.tst-card figcaption strong {
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.tst-card figcaption span {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+
+@media (max-width: 760px) {
+  .testimonials { padding: 90px 0 50px; }
+  .tst-card { grid-column: span 12 !important; min-height: 0; transform: none !important; }
+  .tst-card:hover { transform: translateY(-4px) !important; }
+}
+

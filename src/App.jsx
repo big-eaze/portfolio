@@ -1,26 +1,25 @@
-import { Navbar } from "./components/Navbar";
-import { About } from "./components/About";
 import { Hero } from "./components/Hero";
 import { Experience } from "./components/Experience";
+import { Services } from "./components/Services";
 import { Projects } from "./components/Projects";
+import { About } from "./components/About";
+import { Testimonials } from "./components/Testimonials";
+import { Awards } from "./components/Awards";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import "./App.css";
 import { ScrollProvider } from "./ScrollController";
-import { Services } from "./components/Services";
-
-
-
 
 function App() {
   return (
     <ScrollProvider>
-      <Navbar />
       <Hero />
+      <Experience />
       <About />
       <Services />
-      <Experience />
       <Projects />
+      <Testimonials />
+      <Awards />
       <Contact />
       <Footer />
     </ScrollProvider>

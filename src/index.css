@@ -1,94 +1,98 @@
 :root {
-  /* Backgrounds */
-  --bg-light: #fdf6f0;
-  /* Main cream-ish background */
-  --bg-section: #fff8f2;
-  /* Slightly warmer section background */
-  --bg-card: rgba(255, 255, 255, 0.8);
-  /* Card / container with slight transparency */
-
-  /* Accents & Highlights */
-  --accent: #c28f5f;
-  /* Warm gold accent */
-  --accent-hover: #b5763f;
-  /* Darker gold for hover */
-
-  /* Text */
-  --text-dark: #2c2c2c;
-  /* Primary text */
-  --text-muted: #7a7a7a;
-  /* Secondary text */
-  --text-success: #4caf50;
-  --text-error: #e74c3c;
-
-  /* Borders & Shadows */
-  --border-light: rgba(0, 0, 0, 0.05);
-  --shadow-light: rgba(0, 0, 0, 0.05);
-  --shadow-hover: rgba(0, 0, 0, 0.15);
+  --bg: #FFFFFF;
+  --bg-alt: #FAF8F5;
+  --surface: #FFFFFF;
+  --bg-inset: #F5F2EE;
+  --bg-surface: #FFFFFF;
+  --bg-elevated: #EDEAE6;
+  --text: #1A1715;
+  --text-sec: #5C554D;
+  --text-muted: #7A736B;
+  --text-dim: #A09890;
+  --accent: #A56A43;
+  --accent-deep: #8B5736;
+  --accent-soft: rgba(165, 106, 67, 0.08);
+  --accent-border: rgba(165, 106, 67, 0.25);
+  --line: rgba(26, 23, 21, 0.08);
+  --line-strong: rgba(26, 23, 21, 0.14);
+  --font-serif: "Poppins", sans-serif;
+  --font-display: "Poppins", sans-serif;
+  --font-body: "Poppins", sans-serif;
 }
 
-/* Global reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
 body {
-  font-family: "Poppins", sans-serif;
-  background: var(--bg-light);
-  color: var(--text-dark);
-  scroll-behavior: smooth;
+  font-family: var(--font-body);
+  background: var(--bg);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  font-size: 16px;
+  line-height: 1.6;
 }
 
-.section-label {
-  display: inline-block;
-  padding: 0.5rem 1.25rem;
-  background: rgba(34, 211, 238, 0.1);
-  border: 1px solid rgba(34, 211, 238, 0.2);
-  border-radius: 999px;
-  font-size: 0.8125rem;
-  font-weight: 700;
-  color: #22d3ee;
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+}
+
+a { text-decoration: none; color: inherit; }
+button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+img { display: block; max-width: 100%; }
+section { position: relative; }
+
+::selection { background: var(--accent); color: #fff; }
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--bg-elevated); border-radius: 20px; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent); }
+
+button, a, input, textarea { -webkit-tap-highlight-color: transparent; }
+
+.shell { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+
+.section-head { margin-bottom: 56px; }
+.section-eyebrow {
+  font-family: var(--font-body);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  width: fit-content;
-}
-
-/* Headings */
-h1,
-h2,
-h3,
-h4 {
-  color: var(--text-dark);
-  font-weight: 700;
-}
-
-/* Links & Buttons */
-a {
-  text-decoration: none;
   color: var(--accent);
-  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+.section-eyebrow::before { content: ""; width: 24px; height: 1.5px; background: var(--accent); }
+.section-title {
+  font-size: clamp(36px, 4.8vw, 64px);
+  line-height: 1.08;
+  margin-top: 16px;
+  max-width: 16ch;
+  letter-spacing: -0.025em;
+}
+.section-title em { font-style: italic; color: var(--accent); }
+
+.noise {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.018;
+  z-index: 1;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
-a:hover {
-  color: var(--accent-hover);
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
 
-/* Section Styling */
-section {
-  padding: 6rem 2rem;
-  background: var(--bg-section);
-}
-
-/* Button default */
-button {
-  cursor: pointer;
-  border: none;
-  outline: none;
-  transition: all 0.3s ease;
+@media (max-width: 760px) {
+  .shell { padding: 0 24px; }
+  .section-head { margin-bottom: 40px; }
 }

@@ -1,153 +1,134 @@
 import { motion } from "framer-motion";
-import { Code2, Palette, Zap, Award } from "lucide-react";
+import { Award, Check } from "lucide-react";
+import leafSprig from "../assets/leaf-sprig.svg";
+import leafCluster from "../assets/leaf-cluster.svg";
 import "./About.css";
 
+const skills = [
+  { name: "React.js", level: 95 },
+  { name: "JavaScript / TypeScript", level: 90 },
+  {name: "Python", level: 88 },
+  { name: "Tailwind CSS", level: 93 },
+  { name: "Next.js", level: 88 },
+  { name: "React Native", level: 85 },
+  { name: "WordPress", level: 78 },
+];
+
+const traits = [
+  "Innovations",
+  "Excellence",
+  "Creativity",
+  "Experience",
+  "Passion",
+  "Problem-solving",
+];
+
 export function About() {
-  const skills = [
-    { icon: Code2, label: "Clean Code", color: "#22d3ee" },
-    { icon: Palette, label: "Modern Design", color: "#8b5cf6" },
-    { icon: Zap, label: "Performance", color: "#f59e0b" },
-    { icon: Award, label: "Best Practices", color: "#10b981" },
-  ];
-
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
-
   return (
-    <section className="about-section" id="about">
-      <motion.div
-        className="about-container"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
-      >
-        <div className="about-content">
-          <motion.div className="about-header" variants={itemVariants}>
-            <span className="section-label">Who I Am</span>
-            <h2>
-              About <span className="highlight">Me</span>
-            </h2>
-          </motion.div>
+    <section className="about" id="about">
+      {/* Botanical artwork stays behind the readable content. */}
+      <div className="about-vector-bg" aria-hidden="true">
+        <img className="about-leaf about-leaf-sprig" src={leafSprig} alt="" />
+        <img className="about-leaf about-leaf-cluster" src={leafCluster} alt="" />
+      </div>
 
-          <motion.div className="about-text" variants={itemVariants}>
-            <p className="lead-text">
-              <span>I'm <strong>Israel</strong>, </span>
-              a <strong>Frontend & Mobile Developer</strong> passionate about turning creative ideas
-              into smooth, interactive, and visually engaging web and mobile experiences.
-            </p>
-            <p>
-              I enjoy crafting clean interfaces, writing maintainable code, and bringing digital
-              products to life through thoughtful design and motion. My focus is on building
-              high-performance, responsive, and accessible applications across web and mobile
-              platforms using modern technologies like <strong>React</strong>, <strong>React Native</strong>, <strong>JavaScript</strong>, <strong>Next.js</strong>, and <strong>CSS</strong>.
-            </p>
-            <p>
-              I'm constantly exploring new tools and trends to stay ahead and improve how people
-              interact with digital products.
-            </p>
-          </motion.div>
+      <div className="about-floating-label" aria-hidden="true">ABOUT</div>
+      
+      <div className="shell about-inner">
+        <motion.div
+          className="about-copy"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={{
+            hidden: { opacity: 0, y: 36 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
+          }}
+        >
+          <span className="section-eyebrow">About me</span>
+          <h2 className="section-title">
+            My goal is to craft products that <em>feel</em> as good as they work.
+          </h2>
+          <p className="about-lead">
+            A website is more than a digital presence — it&rsquo;s a tool that tells your
+            story and moves your business forward. I&rsquo;m <strong>Israel Ojeleye</strong>,
+            a Frontend &amp; Mobile Developer passionate about turning creative ideas
+            into fast, interactive, and visually engaging experiences across web and
+            mobile.
+          </p>
+          <p className="about-body">
+            I write clean, maintainable code with a focus on performance, accessibility
+            and thoughtful motion. I&rsquo;m always exploring new tools and trends to stay
+            ahead — and to make products people genuinely enjoy using.
+          </p>
 
-          <motion.div className="skill-grid" variants={itemVariants}>
-            {skills.map((skill, i) => (
-              <motion.div
-                key={i}
-                className="skill-card"
-                whileHover={{ y: -4, scale: 1.02 }}
-                transition={{ duration: 0.2 }}
-              >
-                <div className="skill-icon" style={{ backgroundColor: `${skill.color}15`, color: skill.color }}>
-                  <skill.icon size={24} />
-                </div>
-                <span className="skill-label">{skill.label}</span>
-              </motion.div>
+          <div className="about-traits">
+            {traits.map((trait) => (
+              <span key={trait}>
+                <Check size={13} /> {trait}
+              </span>
             ))}
-          </motion.div>
+          </div>
 
-          <motion.div className="about-actions" variants={itemVariants}>
-            <motion.a
-              href="#projects"
-              className="btn-primary"
-              whileHover={{ scale: 1.02, y: -2 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              View My Work
-            </motion.a>
-            <motion.a
-              href="#experience"
-              className="btn-secondary"
-              whileHover={{ scale: 1.02 }}
-              whileTap={{ scale: 0.98 }}
-            >
-              My Tech Stack
-            </motion.a>
-          </motion.div>
-        </div>
+          <a href="#experience" className="about-readmore">
+            My tech stack <span className="about-arrow">&rarr;</span>
+          </a>
+        </motion.div>
 
         <motion.div
-          className="about-visual"
-          variants={itemVariants}
+          className="about-skills"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.1 } },
+          }}
         >
-          <div className="visual-container">
+          <motion.div
+            className="about-badge"
+            variants={{
+              hidden: { opacity: 0, y: 22 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+            }}
+          >
+            <Award size={18} />
+            <span>
+              <strong>Clean code</strong>
+              performance &amp; best practices
+            </span>
+          </motion.div>
+
+          {skills.map((skill) => (
             <motion.div
-              className="shape shape-1"
-              animate={{
-                y: [0, -20, 0],
-                rotate: [0, 5, 0],
+              className="skill-row"
+              key={skill.name}
+              variants={{
+                hidden: { opacity: 0, y: 26 },
+                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
               }}
-              transition={{
-                duration: 6,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            />
-            <motion.div
-              className="shape shape-2"
-              animate={{
-                y: [0, -15, 0],
-                rotate: [0, -5, 0],
-              }}
-              transition={{
-                duration: 5,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 0.5,
-              }}
-            />
-            <motion.div
-              className="shape shape-3"
-              animate={{
-                y: [0, -25, 0],
-                rotate: [0, 8, 0],
-              }}
-              transition={{
-                duration: 7,
-                repeat: Infinity,
-                ease: "easeInOut",
-                delay: 1,
-              }}
-            />
-            <div className="visual-glow"></div>
-          </div>
+            >
+              <div className="skill-row-top">
+                <span className="skill-name">{skill.name}</span>
+                <span className="skill-pct">{skill.level}%</span>
+              </div>
+              <div className="skill-bar">
+                <motion.div
+                  className="skill-fill"
+                  initial={{ width: 0 }}
+                  whileInView={{ width: `${skill.level}%` }}
+                  viewport={{ once: true, margin: "-40px" }}
+                  transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+                />
+              </div>
+            </motion.div>
+          ))}
+
+          <p className="about-note">
+            Honest about weak spots too — always leveling up the sharpest tool in the box.
+          </p>
         </motion.div>
-      </motion.div>
+      </div>
     </section>
   );
 }

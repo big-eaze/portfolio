@@ -1,10 +1,26 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
+import { ArrowUpRight, Mail, MapPin, Phone } from "lucide-react";
+import contactSignal from "../assets/contact-signal.svg";
 import "./Contact.css";
+
+const contactInfo = [
+  { icon: <Mail size={18} />, label: "Email", value: "israel.ojeleye.dev@gmail.com", href: "mailto:israel.ojeleye.dev@gmail.com" },
+  { icon: <Phone size={18} />, label: "Phone / WhatsApp", value: "+234 706 745 9884", href: "tel:+2347067459884" },
+  { icon: <MapPin size={18} />, label: "Location", value: "Lagos, Nigeria", href: null },
+];
+
+const reveal = {
+  hidden: { opacity: 0, y: 32 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.1 },
+  }),
+};
 
 export function Contact() {
   const [status, setStatus] = useState("idle");
-  const [focusedField, setFocusedField] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +35,6 @@ export function Contact() {
         body: data,
         headers: { Accept: "application/json" },
       });
-
       if (response.ok) {
         setStatus("success");
         form.reset();
@@ -28,158 +43,114 @@ export function Contact() {
         setStatus("error");
         setTimeout(() => setStatus("idle"), 4000);
       }
-    } catch (err) {
+    } catch {
       setStatus("error");
       setTimeout(() => setStatus("idle"), 4000);
     }
   };
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.12,
-        delayChildren: 0.2,
-      },
-    },
-  };
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 30 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
-    },
-  };
-
   return (
-    <section className="contact-section" id="contact">
-      {/* Animated background orbs */}
-      <div className="orb orb-1"></div>
-      <div className="orb orb-2"></div>
-      <div className="orb orb-3"></div>
-
-      <motion.div
-        className="contact-wrapper"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        variants={containerVariants}
-      >
-        <motion.div variants={itemVariants} className="section-header">
-          <motion.h2 className="section-title">
-            Let's Create
-            <br />
-            <span className="gradient-text">Something Amazing</span>
+    <section className="contact" id="contact">
+      <img className="contact-vector" src={contactSignal} alt="" aria-hidden="true" />
+      <div className="shell contact-inner">
+        <motion.div
+          className="contact-copy"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.1 } },
+          }}
+        >
+          <motion.span className="section-eyebrow" variants={reveal} custom={0}>
+            Contact
+          </motion.span>
+          <motion.h2 className="contact-title" variants={reveal} custom={1}>
+            Let&rsquo;s work<br />together<span className="contact-accent">.</span>
           </motion.h2>
-          <motion.p className="section-subtitle">
-            Have a project in mind? Drop me a message and let's bring your ideas to life.
+          <motion.p className="contact-blurb" variants={reveal} custom={2}>
+            Have a project in mind? Drop me a message — I usually reply within a day.
           </motion.p>
+
+          <motion.div className="contact-lines" variants={reveal} custom={3}>
+            {contactInfo.map((info) => (
+              <div className="contact-line" key={info.label}>
+                <span className="contact-line-icon">{info.icon}</span>
+                <div>
+                  <span className="contact-line-label">{info.label}</span>
+                  {info.href ? (
+                    <a href={info.href}>{info.value}</a>
+                  ) : (
+                    <span className="contact-line-value">{info.value}</span>
+                  )}
+                </div>
+              </div>
+            ))}
+          </motion.div>
         </motion.div>
 
         <motion.form
           className="contact-form"
           onSubmit={handleSubmit}
-          variants={itemVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={{
+            hidden: {},
+            visible: { transition: { staggerChildren: 0.1, delayChildren: 0.2 } },
+          }}
         >
-          <div className="form-grid">
-            {/* Name Input */}
-            <motion.div
-              className={`input-wrapper ${focusedField === "name" ? "focused" : ""}`}
-              whileHover={{ y: -2 }}
-              transition={{ duration: 0.2 }}
-            >
-              <label htmlFor="name">Your Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                placeholder="John Doe"
-                required
-                onFocus={() => setFocusedField("name")}
-                onBlur={() => setFocusedField(null)}
-              />
-              <div className="input-highlight"></div>
-            </motion.div>
-
-            {/* Email Input */}
-            <motion.div
-              className={`input-wrapper ${focusedField === "email" ? "focused" : ""}`}
-              whileHover={{ y: -2 }}
-              transition={{ duration: 0.2 }}
-            >
-              <label htmlFor="email">Your Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                placeholder="john@example.com"
-                required
-                onFocus={() => setFocusedField("email")}
-                onBlur={() => setFocusedField(null)}
-              />
-              <div className="input-highlight"></div>
-            </motion.div>
-          </div>
-
-          {/* Message Textarea */}
-          <motion.div
-            className={`input-wrapper textarea-wrapper ${focusedField === "message" ? "focused" : ""}`}
-            whileHover={{ y: -2 }}
-            transition={{ duration: 0.2 }}
-          >
-            <label htmlFor="message">Your Message</label>
-            <textarea
-              id="message"
-              name="message"
-              rows="5"
-              placeholder="Tell me about your project..."
-              required
-              onFocus={() => setFocusedField("message")}
-              onBlur={() => setFocusedField(null)}
-            ></textarea>
+          <motion.div className="form-field" variants={reveal} custom={0}>
+            <label htmlFor="name">Your Name *</label>
+            <input id="name" name="name" type="text" placeholder="John Doe" required />
           </motion.div>
 
-          {/* Submit Button */}
-          <motion.button
-            type="submit"
-            className={`btn-contact ${status === "sending" ? "sending" : ""} ${status === "success" ? "success" : ""}`}
-            disabled={status === "sending"}
-            whileHover={{ scale: 1.02 }}
-            whileTap={{ scale: 0.98 }}
-            transition={{ duration: 0.2 }}
-          >
-            <span className="btn-text">
-              {status === "sending"
-                ? "Sending..."
-                : status === "success"
-                  ? "Sent Successfully!"
-                  : "Send Message"}
-            </span>
-            <span className="btn-icon">
-              {status === "success" ? "✓" : "→"}
-            </span>
-          </motion.button>
+          <motion.div className="form-field" variants={reveal} custom={1}>
+            <label htmlFor="email">Your Email *</label>
+            <input id="email" name="email" type="email" placeholder="john@example.com" required />
+          </motion.div>
 
-          {/* Status Messages */}
+          <motion.div className="form-field" variants={reveal} custom={2}>
+            <label htmlFor="message">Your Message *</label>
+            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required />
+          </motion.div>
+
+          <motion.div className="form-actions" variants={reveal} custom={3}>
+            <button
+              type="submit"
+              className={`contact-submit ${status === "sending" ? "sending" : ""} ${status === "success" ? "success" : ""}`}
+              disabled={status === "sending"}
+            >
+              {status === "sending"
+                ? "Sending\u2026"
+                : status === "success"
+                  ? "Sent \u2014 thank you!"
+                  : "Send Message"}
+              <ArrowUpRight size={17} />
+            </button>
+          </motion.div>
+
           <AnimatePresence mode="wait">
             {status === "error" && (
-              <motion.div
-                className="status-msg error"
-                initial={{ opacity: 0, y: -10 }}
+              <motion.p
+                className="form-error"
+                initial={{ opacity: 0, y: -8 }}
                 animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -10 }}
-                transition={{ duration: 0.3 }}
+                exit={{ opacity: 0 }}
               >
-                <span className="status-icon">⚠</span>
-                <span>Oops! Something went wrong. Please try again.</span>
-              </motion.div>
+                Something went wrong. Please try again or email me directly.
+              </motion.p>
             )}
           </AnimatePresence>
         </motion.form>
-      </motion.div>
+      </div>
+
+      <div className="contact-ticker" aria-hidden="true">
+        <span>Let&rsquo;s build something great</span>
+        <span className="contact-ticker-line"></span>
+        <span>Let&rsquo;s build something great</span>
+      </div>
     </section>
   );
 }

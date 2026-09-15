@@ -1,64 +1,123 @@
 import { motion } from "framer-motion";
-import { Palette, Code, Wrench } from "lucide-react";
+import { useState } from "react";
+import { ArrowUpRight, Plus } from "lucide-react";
+import serviceOrbit from "../assets/service-orbit.svg";
 import "./Services.css";
 
 const services = [
   {
-    icon: <Palette />,
-    title: "DESIGN",
-    description: "I craft intuitive and visually stunning interfaces that blend aesthetics with functionality, ensuring every pixel serves a purpose.",
+    num: "01",
+    title: "Frontend Development",
+    description:
+      "Pixel-perfect, responsive interfaces built with React, Next.js and modern tooling. Fast, accessible and enjoyable to use.",
+    tags: ["React", "Next.js", "TypeScript", "Tailwind CSS"],
   },
   {
-    icon: <Code />,
-    title: "DEVELOPMENT",
-    description: "I build robust, scalable applications from scratch using modern technologies and best practices to bring your vision to life.",
+    num: "02",
+    title: "Mobile Apps",
+    description:
+      "Cross-platform mobile experiences with React Native — smooth navigation, polished motion and native-grade feel.",
+    tags: ["React Native", "Expo", "Firebase", "Supabase"],
   },
   {
-    icon: <Wrench />,
-    title: "MAINTENANCE",
-    description: "I provide ongoing support and optimization to keep your applications running smoothly, secure, and up-to-date with the latest standards.",
+    num: "03",
+    title: "UI / UX Design",
+    description:
+      "Thoughtful interfaces grounded in design systems, motion and clear hierarchy — aesthetics that serve the product.",
+    tags: ["Prototyping", "Design systems", "Motion", "Accessibility"],
+  },
+  {
+    num: "04",
+    title: "Maintenance & Growth",
+    description:
+      "Ongoing support, performance tuning and feature work that keeps your product fast, secure and moving forward.",
+    tags: ["Optimization", "Monitoring", "Refactoring", "WordPress"],
   },
 ];
 
+const reveal = {
+  hidden: { opacity: 0, y: 36 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1], delay: i * 0.08 },
+  }),
+};
+
 export function Services() {
+  const [open, setOpen] = useState(0);
+
   return (
-    <section className="services-section" id="services">
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="section-header"
-      >
-        <div className="section-badge">Services</div>
-        <h2 className="section-title">
-          What I <span className="gradient-text">Offer</span>
-        </h2>
-      </motion.div>
+    <section className="services" id="services">
+      <img className="services-vector" src={serviceOrbit} alt="" aria-hidden="true" />
+      <div className="shell">
+        <motion.div
+          className="section-head services-head"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={{
+            hidden: { opacity: 0, y: 32 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+          }}
+        >
+          <span className="section-eyebrow">Services</span>
+          <h2 className="section-title">
+            What I <em>can</em> do for you
+          </h2>
+          <a href="#contact" className="services-seemore">
+            See more <ArrowUpRight size={16} />
+          </a>
+        </motion.div>
 
-      <div className="services-rail">
-        {services.map((service, i) => (
-          <motion.div
-            key={i}
-            className="service-row"
-            initial={{ opacity: 0, x: i % 2 === 0 ? -40 : 40 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ delay: i * 0.2, duration: 0.6 }}
-            viewport={{ once: true }}
-          >
-            {/* LEFT: ICON NODE */}
-            <div className="service-node">
-              <div className="node-icon">{service.icon}</div>
-              {i !== services.length - 1 && <span className="node-line" />}
-            </div>
+        <div className="services-list">
+          {services.map((service, i) => {
+            const isOpen = open === i;
+            return (
+              <motion.div
+                key={service.num}
+                className={`service-row ${isOpen ? "open" : ""}`}
+                custom={i}
+                variants={reveal}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{ once: true, margin: "-60px" }}
+              >
+                <button
+                  className="service-toggle"
+                  onClick={() => setOpen(isOpen ? null : i)}
+                  aria-expanded={isOpen}
+                >
+                  <span className="service-num">{service.num}</span>
+                  <span className="service-title">{service.title}</span>
+                  <span className="service-icon" aria-hidden="true">
+                    <Plus size={18} />
+                  </span>
+                </button>
 
-            {/* RIGHT: CONTENT */}
-            <div className="service-content">
-              <h3>{service.title}</h3>
-              <p>{service.description}</p>
-            </div>
-          </motion.div>
-        ))}
+                <motion.div
+                  className="service-panel"
+                  initial={false}
+                  animate={isOpen ? "open" : "closed"}
+                  variants={{
+                    open: { height: "auto", opacity: 1 },
+                    closed: { height: 0, opacity: 0 },
+                  }}
+                  transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  <p className="service-desc">{service.description}</p>
+                  <div className="service-tags">
+                    {service.tags.map((tag) => (
+                      <span key={tag} className="service-tag">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </motion.div>
+              </motion.div>
+            );
+          })}
+        </div>
       </div>
     </section>
   );

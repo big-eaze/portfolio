@@ -1,63 +1,133 @@
-// Hero.jsx
-import { useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { Navbar } from "./Navbar";
+import background from "../assets/background.jpg";
+import background2 from "../assets/background2.jpg";
+import background3 from "../assets/background3.jpg";
+import background4 from "../assets/background4.jpg";
+import background5 from "../assets/background5.jpg";
+import background6 from "../assets/background6.jpg";
+import background7 from "../assets/background7.jpg";
+import background8 from "../assets/background8.jpg";
+
 import "./Hero.css";
 
+const socials = [
+  { icon: <FaEnvelope />, href: "mailto:israel@ojeleye.dev", label: "Email" },
+  { icon: <FaGithub />, href: "https://github.com/big-eaze", label: "GitHub" },
+  { icon: <FaLinkedin />, href: "https://www.linkedin.com/in/israel-ojeleye", label: "LinkedIn" },
+];
+
+// Curated Unsplash images showcasing graphic, vector-like, or clean digital web development themes
+const backgroundSlides = [
+  background,
+  background2,
+  background3,
+  background4,
+  background5,
+  background6,
+  background7,
+  background8
+];
+
 export function Hero() {
-  const canvasRef = useRef(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    const ctx = canvas.getContext("2d");
-    let animationFrame;
-
-    const shapes = Array.from({ length: 20 }).map(() => ({
-      x: Math.random() * window.innerWidth,
-      y: Math.random() * window.innerHeight,
-      radius: 15 + Math.random() * 30,
-      color: `hsl(${Math.random() * 360}, 50%, 60%)`,
-      speedX: (Math.random() - 0.5) * 0.7,
-      speedY: (Math.random() - 0.5) * 0.7,
-    }));
-
-    const resize = () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-    };
-    resize();
-    window.addEventListener("resize", resize);
-
-    const animate = () => {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      shapes.forEach((s) => {
-        s.x += s.speedX;
-        s.y += s.speedY;
-        if (s.x < 0 || s.x > canvas.width) s.speedX *= -1;
-        if (s.y < 0 || s.y > canvas.height) s.speedY *= -1;
-
-        ctx.beginPath();
-        ctx.arc(s.x, s.y, s.radius, 0, Math.PI * 2);
-        ctx.fillStyle = s.color;
-        ctx.globalAlpha = 0.3;
-        ctx.fill();
-      });
-      animationFrame = requestAnimationFrame(animate);
-    };
-    animate();
-
-    return () => {
-      cancelAnimationFrame(animationFrame);
-      window.removeEventListener("resize", resize);
-    };
+    const timer = setInterval(() => {
+      setCurrentSlide((prev) => (prev + 1) % backgroundSlides.length);
+    }, 3000);
+    return () => clearInterval(timer);
   }, []);
 
+  const selectSlide = (index) => setCurrentSlide(index);
+
   return (
-    <section className="hero-section" id="home">
-      <canvas ref={canvasRef} />
-      <div className="hero-content">
-        <h1>I Craft Digital Experiences</h1>
-        <p>From concept to launch, I create web and mobile applications that deliver smooth, interactive, and visually engaging user experiences</p>
-        <a href="#about" className="hero-cta">Learn More</a>
+    <section className="hero" id="home">
+      <div className="hero-card">
+        <Navbar variant="hero" />
+
+        {/* Bold, Vivid Background Slider Layer */}
+        <div className="hero-slider-container">
+          <AnimatePresence mode="sync" initial={false}>
+            <motion.div
+              key={currentSlide}
+              className="hero-slide-item"
+              initial={{
+                clipPath: "inset(0 0 0 100%)",
+                scale: 1.08,
+              }}
+              animate={{
+                clipPath: "inset(0 0 0 0%)",
+                scale: 1,
+              }}
+              exit={{
+                clipPath: "inset(0 100% 0 0)",
+                scale: 1,
+              }}
+              transition={{
+                clipPath: {
+                  duration: 1.2,
+                  ease: [0.76, 0, 0.24, 1],
+                },
+                scale: {
+                  duration: 1.4,
+                  ease: [0.22, 1, 0.36, 1],
+                },
+              }}
+            >
+              <img
+                src={backgroundSlides[currentSlide]}
+                alt=""
+                className="hero-slide-bg"
+              />
+
+              <div className="hero-slide-overlay" />
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        {/* Central Content Layout with Frosted Glass Box */}
+        <div className="hero-main-content">
+          <motion.div
+            className="hero-content-glass-box"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+          >
+            <h1 className="hero-main-title">
+              Crafting digital products with <span>precision.</span>
+            </h1>
+
+            <p className="hero-desc-text">
+              Hi, I&rsquo;m Israel Ojeleye. I design and build high-performance web & mobile applications,
+              immersive motion systems, and clean interfaces that people love to use.
+            </p>
+
+            <div className="hero-actions-row">
+              <a href="#works" className="hero-btn-primary">Explore Works</a>
+              <a href="#contact" className="hero-btn-outline">Let&rsquo;s Connect</a>
+            </div>
+
+            <div className="hero-social-cluster">
+              {socials.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                >
+                  {social.icon}
+                </a>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+       
       </div>
     </section>
   );
-};
+}

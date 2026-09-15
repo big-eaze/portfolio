@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { ExternalLink, Lock, ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Lock } from "lucide-react";
 import eCom from "../assets/e-commerce.png";
 import outfitMat from "../assets/outfit-matcher.png";
 import primeSphere from "../assets/prime-sphere.png";
@@ -12,219 +12,155 @@ const projects = [
   {
     title: "Ginkbow E-commerce",
     image: eCom,
+    categories: ["Design", "Development"],
     description:
-      "A fully responsive SPA with CRUD functionality built with React, Express, and supabase.",
-    tech: ["React", "tailwind", "Supabase", "framer-motion"],
-    status: "live",
+      "Fully responsive SPA with CRUD, cart and auth — React, Express & Supabase.",
+    tech: ["React", "Tailwind", "Supabase", "Framer Motion"],
     link: "http://ginkbow.vercel.app",
-    accent: "#22d3ee"
+    size: "wide",
   },
   {
     title: "Spice!Route",
     image: restu,
+    categories: ["UI", "Web"],
     description:
-      "Responsive restaurant prototype with smooth navigation & modern UI using React, Tailwind, and Shadcn.",
-    tech: ["React", "TailwindCSS", "Shadcn", "framer-motion"],
-    status: "live",
+      "Responsive restaurant prototype with smooth navigation & modern UI.",
+    tech: ["React", "TailwindCSS", "Shadcn", "Framer Motion"],
     link: "https://restaurant-ten-sable.vercel.app",
-    accent: "#f59e0b"
   },
   {
-    title: "Virtual Styling Assistant(VSA)",
+    title: "Virtual Styling Assistant",
     image: outfitMat,
+    categories: ["Mobile", "UI"],
     description:
-      "Smart app suggesting outfit combinations with category-based matching logic and animations.",
-    tech: ["React", "Tailwind", "Framer Motion", "firebase"],
-    status: "live",
+      "Smart app suggesting outfit combos with category matching and motion.",
+    tech: ["React", "Tailwind", "Framer Motion", "Firebase"],
     link: "https://vsa-rosy.vercel.app",
-    accent: "#8b5cf6"
   },
   {
     title: "Prime Sphere Real Estate",
     image: primeSphere,
+    categories: ["Web", "Data"],
     description:
-      "Property listing site with filters, search, and dynamic cards powered by Next.js and Supabase.",
+      "Property listing with filters, search and dynamic cards — Next.js + Supabase.",
     tech: ["Next.js", "ShadCN", "CSS"],
-    status: "live",
     link: "https://prime-sphere-real-estate.vercel.app",
-    accent: "#ec4899"
+    size: "wide",
   },
   {
     title: "Aurora School Management",
     image: aurora,
+    categories: ["Development", "Systems"],
     description:
-      "Role-based (Admin, Student, Staff) management system built with React, Express, and SQLite.",
+      "Role-based management system (Admin, Student, Staff) — React, Express, SQLite.",
     tech: ["React", "Express", "Supabase"],
-    status: "live",
-    loginDetails: {
-      username: "jahman1092",
-      password: "Israel1021@"
-    },
     link: "https://aurora-end.vercel.app/",
-    accent: "#10b981"
+    login: { username: "jahman1092", password: "Israel1021@" },
   },
   {
-    title: "HIV/AIDS Awareness(SACA)",
+    title: "SACA — HIV/AIDS Awareness",
     image: saca,
+    categories: ["Design", "Civic"],
     description:
-      "Informative site on HIV/AIDS with resources, built using React and TailwindCSS.",
+      "Informative awareness platform with resources & clean storytelling.",
     tech: ["React", "TailwindCSS"],
-    status: "live",
     link: "https://saca-project.vercel.app/",
-    accent: "#ef4444"
-  }
+  },
 ];
+
+const reveal = {
+  hidden: { opacity: 0, y: 44 },
+  visible: (i) => ({
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1], delay: (i % 3) * 0.1 },
+  }),
+};
 
 export function Projects() {
   return (
-    <section className="projects-section" id="projects">
-      {/* Decorative elements */}
-      <div className="grid-pattern"></div>
+    <section className="works" id="works">
+      <div className="shell">
+        <motion.div
+          className="section-head works-head"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-80px" }}
+          variants={{
+            hidden: { opacity: 0, y: 32 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+          }}
+        >
+          <span className="section-eyebrow">Portfolio</span>
+          <h2 className="section-title">
+            Featured <em>works</em>
+          </h2>
+        </motion.div>
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.8 }}
-        viewport={{ once: true }}
-        className="section-header"
-      >
-        <div className="section-badge">Portfolio</div>
-        <h2 className="section-title">
-          Selected <span className="gradient-text">Work</span>
-        </h2>
-        <p className="section-subtitle">
-          Crafting digital experiences that blend aesthetics with functionality
-        </p>
-      </motion.div>
-      <div className="projects-showcase">
-        {projects.map((project, i) => (
-          <motion.article
-            key={i}
-            className={`project-item ${i % 2 === 0 ? 'layout-left' : 'layout-right'}`}
-            initial={{ opacity: 0, y: 60 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: i * 0.1 }}
-            viewport={{ once: true, margin: "-100px" }}
-          >
-            <div className="project-visual">
-              <motion.div
-                className="project-thumbnail"
-                whileHover={{ scale: 1.02, rotate: i % 2 === 0 ? -1 : 1 }}
-                transition={{ duration: 0.4 }}
-              >
-                {/* Actual Image */}
-                {project.image ? (
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="thumbnail-image"
-                  />
-                ) : (
-                  <div
-                    className="thumbnail-placeholder"
-                    style={{
-                      background: `linear-gradient(135deg, ${project.accent}15, ${project.accent}05)`,
-                      borderColor: `${project.accent}30`
-                    }}
-                  />
+        <div className="works-grid">
+          {projects.map((project, i) => (
+            <motion.a
+              key={project.title}
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`work-card ${project.size === "wide" ? "wide" : ""}`}
+              custom={i}
+              variants={reveal}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-60px" }}
+            >
+              <span className="work-index">0{i + 1}</span>
+              <div className="work-media">
+                <img src={project.image} alt={project.title} className="work-img" />
+                <div className="work-overlay">
+                  <span className="work-open">
+                    View project <ArrowUpRight size={15} />
+                  </span>
+                </div>
+              </div>
+
+              <div className="work-meta">
+                <div className="work-meta-top">
+                  <div className="work-cats">
+                    {project.categories.map((cat) => (
+                      <span key={cat}>{cat}</span>
+                    ))}
+                  </div>
+                  <ArrowUpRight className="work-arrow" size={18} />
+                </div>
+                <h3 className="work-title">{project.title}</h3>
+                <p className="work-summary">{project.description}</p>
+              </div>
+
+              <div className="work-hover-desc">
+                <div className="work-tech">
+                  {project.tech.map((t, idx) => (
+                    <span key={idx}>{t}</span>
+                  ))}
+                </div>
+                {project.login && (
+                  <div className="work-login">
+                    <Lock size={12} /> {project.login.username} / {project.login.password}
+                  </div>
                 )}
-                {/* Gradient Overlay */}
-                <div
-                  className="thumbnail-overlay"
-                  style={{ background: `linear-gradient(135deg, ${project.accent}15, ${project.accent}05)` }}
-                >
-                  <ArrowUpRight className="overlay-icon" />
-                </div>
-
-                {/* Big Number */}
-                <div className="thumbnail-number" style={{ color: `${project.accent}20` }}>
-                  {String(i + 1).padStart(2, '0')}
-                </div>
-              </motion.div>
-            </div>
-
-
-            <div className="project-details">
-              <div className="project-meta">
-                <motion.span
-                  className={`status-pill ${project.status}`}
-                  whileHover={{ scale: 1.05 }}
-                >
-                  <span className="status-indicator"></span>
-                  {project.status}
-                </motion.span>
-                <span className="project-index">/{String(i + 1).padStart(2, '0')}</span>
               </div>
+            </motion.a>
+          ))}
+        </div>
 
-              <h3 className="project-title">
-                <span className="title-accent" style={{ color: project.accent }}>→</span>
-                {project.title}
-              </h3>
-
-              <p className="project-desc">{project.description}</p>
-
-              <div className="tech-stack">
-                {project.tech.map((tech, idx) => (
-                  <motion.span
-                    key={idx}
-                    className="tech-item"
-                    style={{ borderColor: `${project.accent}40` }}
-                    whileHover={{
-                      scale: 1.05,
-                      backgroundColor: `${project.accent}10`,
-                      borderColor: project.accent
-                    }}
-                  >
-                    {tech}
-                  </motion.span>
-                ))}
-              </div>
-
-              {project.loginDetails && (
-                <motion.div
-                  className="credentials-box"
-                  initial={{ opacity: 0, height: 0 }}
-                  whileInView={{ opacity: 1, height: "auto" }}
-                  transition={{ duration: 0.4 }}
-                >
-                  <div className="credentials-header">
-                    <Lock size={14} />
-                    <span>Test Account</span>
-                  </div>
-                  <div className="credentials-grid">
-                    <div className="cred-item">
-                      <span className="cred-label">Username</span>
-                      <code className="cred-value">{project.loginDetails.username}</code>
-                    </div>
-                    <div className="cred-item">
-                      <span className="cred-label">Password</span>
-                      <code className="cred-value">{project.loginDetails.password}</code>
-                    </div>
-                  </div>
-                </motion.div>
-              )}
-
-              <motion.a
-                href={project.link}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="project-link"
-                style={{
-                  backgroundColor: project.accent,
-                  boxShadow: `0 8px 24px ${project.accent}40`
-                }}
-                whileHover={{
-                  y: -2,
-                  boxShadow: `0 12px 32px ${project.accent}50`
-                }}
-                whileTap={{ scale: 0.98 }}
-              >
-                <span>View Live Project</span>
-                <ExternalLink size={18} />
-              </motion.a>
-            </div>
-          </motion.article>
-        ))}
+        <motion.div
+          className="works-more"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+        >
+          <a href="https://github.com/big-eaze" target="_blank" rel="noopener noreferrer" className="btn-ghost">
+            More experiments on GitHub
+          </a>
+        </motion.div>
       </div>
     </section>
   );
