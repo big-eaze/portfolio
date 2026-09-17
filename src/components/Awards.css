@@ -1,64 +1,388 @@
 .awards {
-  padding: 112px 0 128px;
-  background: var(--bg);
+  position: relative;
+  padding: 140px 0 152px;
+  background: #30251f;
+  isolation: isolate;
   overflow: hidden;
 }
 
-.awards > .shell { position: relative; z-index: 1; }
+/* --------------------------------------------------
+   STAIRCASE VIDEO
+-------------------------------------------------- */
+
+.awards-video {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  z-index: -2;
+
+  opacity: 0.8;
+
+  /*
+    Slightly warm the original footage so it belongs
+    to the brown palette of the portfolio.
+  */
+  filter:
+    sepia(0.2)
+    saturate(0.75)
+    brightness(0.72)
+    contrast(1.05);
+}
+
+
+/*
+  This is the important part.
+
+  Instead of putting a dark rectangle over the whole
+  video, the overlay uses gradients so the video
+  disappears into the brown background around the edges.
+*/
+.awards-video-overlay {
+  position: absolute;
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    /*
+      Left side:
+      brown blends into the video
+    */
+    linear-gradient(
+      90deg,
+      #30251f 0%,
+      rgba(48, 37, 31, 0.94) 12%,
+      rgba(48, 37, 31, 0.55) 32%,
+      rgba(48, 37, 31, 0.08) 55%,
+      rgba(48, 37, 31, 0.25) 72%,
+      #30251f 100%
+    ),
+
+    /*
+      Top fade
+    */
+    linear-gradient(
+      180deg,
+      #30251f 0%,
+      rgba(48, 37, 31, 0.55) 16%,
+      transparent 40%,
+      rgba(48, 37, 31, 0.2) 75%,
+      #30251f 100%
+    );
+}
+
+
+/*
+  Adds a very subtle brown glow over the footage.
+*/
+.awards::after {
+  content: "";
+
+  position: absolute;
+  inset: 0;
+
+  z-index: -1;
+
+  pointer-events: none;
+
+  background:
+    radial-gradient(
+      circle at 72% 45%,
+      rgba(190, 128, 82, 0.12),
+      transparent 45%
+    );
+
+  mix-blend-mode: soft-light;
+}
+
+
+/* --------------------------------------------------
+   CONTENT
+-------------------------------------------------- */
+
+.awards > .shell {
+  position: relative;
+  z-index: 2;
+}
 
 .awards-head {
-  margin-bottom: 64px;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: 64px;
+  align-items: end;
 }
 
+.awards .section-eyebrow {
+  color: #e2a578;
+}
+
+.awards .section-eyebrow::before {
+  background: #e2a578;
+}
+
+.awards .section-title {
+  color: #fffaf5;
+  max-width: 12ch;
+}
+
+.awards .section-title em {
+  color: #e2a578;
+}
+
+.awards-intro {
+  max-width: 510px;
+
+  margin-top: 26px;
+
+  color: rgba(255, 250, 245, 0.76);
+
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+
+/* --------------------------------------------------
+   NUMBER / SIDE NOTE
+-------------------------------------------------- */
+
+.awards-note {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  padding: 22px 0 6px 28px;
+
+  border-left: 1px solid rgba(255, 250, 245, 0.3);
+}
+
+.awards-note-number {
+  font-family: var(--font-display);
+
+  font-size: 64px;
+  font-weight: 600;
+
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+
+  color: #fffaf5;
+}
+
+.awards-note-number::after {
+  content: "✦";
+
+  margin-left: 14px;
+
+  font-size: 22px;
+
+  color: #e2a578;
+
+  vertical-align: top;
+}
+
+.awards-note-label {
+  color: #e2a578;
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 0.14em;
+  line-height: 1.6;
+
+  text-transform: uppercase;
+}
+
+
+/* --------------------------------------------------
+   CLIENT MARQUEE
+-------------------------------------------------- */
+
 .client-marquee {
+  position: relative;
+
   width: 100%;
+
+  margin-top: 104px;
+
   overflow: hidden;
-  border-top: 1px solid var(--line-strong);
-  border-bottom: 1px solid var(--line-strong);
-  mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+
+  padding: 18px 0;
+
+  border-top: 1px solid rgba(255, 250, 245, 0.18);
+  border-bottom: 1px solid rgba(255, 250, 245, 0.18);
+
+  mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
+
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    transparent,
+    #000 8%,
+    #000 92%,
+    transparent
+  );
 }
 
 .client-track {
   display: flex;
   align-items: center;
+
   width: max-content;
-  animation: client-logo-scroll 28s linear infinite;
+
+  animation: client-logo-scroll 30s linear infinite;
+
   will-change: transform;
 }
 
 .client-logo {
   display: inline-flex;
   align-items: center;
-  gap: 26px;
-  padding: 28px 34px;
-  color: var(--text-sec);
+
+  padding: 13px 28px;
+
+  color: #fffaf5;
+
   font-family: var(--font-display);
-  font-size: clamp(20px, 2.8vw, 34px);
+
+  font-size: clamp(19px, 2.4vw, 28px);
   font-weight: 600;
-  letter-spacing: -0.05em;
+
+  letter-spacing: -0.04em;
+
   white-space: nowrap;
+
+  background: rgba(255, 250, 245, 0.035);
+
+  border: 1px solid rgba(226, 165, 120, 0.14);
+
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 }
 
 .client-logo::after {
   content: "✦";
-  color: var(--accent);
+
+  margin-left: 34px;
+
+  color: #e2a578;
+
   font-family: var(--font-body);
-  font-size: 14px;
-  letter-spacing: 0;
+
+  font-size: 13px;
 }
 
+.client-logo:hover {
+  color: #e2a578;
+
+  background: rgba(226, 165, 120, 0.08);
+
+  border-color: rgba(226, 165, 120, 0.4);
+
+  transform: translateY(-3px);
+}
+
+
+/* --------------------------------------------------
+   ANIMATION
+-------------------------------------------------- */
 
 @keyframes client-logo-scroll {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
 }
+
+
+/* --------------------------------------------------
+   MOBILE
+-------------------------------------------------- */
 
 @media (max-width: 760px) {
-  .awards { padding: 84px 0 94px; }
-  .client-logo { padding: 22px 24px; font-size: 21px; }
+  .awards {
+    padding: 92px 0 100px;
+  }
+
+  .awards-video {
+    object-position: center;
+    opacity: 0.65;
+  }
+
+  .awards-video-overlay {
+    background:
+      linear-gradient(
+        90deg,
+        #30251f 0%,
+        rgba(48, 37, 31, 0.75) 35%,
+        rgba(48, 37, 31, 0.35) 70%,
+        #30251f 100%
+      ),
+      linear-gradient(
+        180deg,
+        #30251f 0%,
+        rgba(48, 37, 31, 0.25) 35%,
+        rgba(48, 37, 31, 0.5) 75%,
+        #30251f 100%
+      );
+  }
+
+  .awards-head {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .awards-note {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 16px;
+
+    padding: 14px 0 0 18px;
+  }
+
+  .awards-note-number {
+    font-size: 42px;
+  }
+
+  .awards-note-number::after {
+    font-size: 16px;
+    margin-left: 10px;
+  }
+
+  .client-marquee {
+    margin-top: 64px;
+    padding: 14px 0;
+  }
+
+  .client-logo {
+    padding: 11px 20px;
+    font-size: 19px;
+  }
+
+  .client-logo::after {
+    margin-left: 24px;
+  }
 }
 
+
 @media (prefers-reduced-motion: reduce) {
-  .client-track { animation: none; transform: translateX(0); }
+  .client-track {
+    animation: none;
+    transform: translateX(0);
+  }
 }

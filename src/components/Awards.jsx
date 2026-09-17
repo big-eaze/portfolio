@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import staircaseVideo from "../assets/staircase.mp4";
 import "./Awards.css";
 
 const clients = [
@@ -16,7 +17,19 @@ export function Awards() {
 
   return (
     <section className="awards clients" id="clients">
-      <div className="shell">
+      <video
+        className="awards-video"
+        src={staircaseVideo}
+        autoPlay
+        muted
+        loop
+        playsInline
+        aria-hidden="true"
+      />
+
+      <div className="awards-video-overlay" aria-hidden="true" />
+
+      <div className="shell awards-shell">
         <motion.div
           className="section-head awards-head"
           initial="hidden"
@@ -24,20 +37,46 @@ export function Awards() {
           viewport={{ once: true, margin: "-80px" }}
           variants={{
             hidden: { opacity: 0, y: 32 },
-            visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+            visible: {
+              opacity: 1,
+              y: 0,
+              transition: { duration: 0.7 },
+            },
           }}
         >
-          <span className="section-eyebrow">Wonderful clients</span>
-          <h2 className="section-title">
-            Built with <em>good people</em>
-          </h2>
+          <div>
+            <span className="section-eyebrow">Wonderful clients</span>
+
+            <h2 className="section-title">
+              Built with <em>good people.</em>
+            </h2>
+
+            <p className="awards-intro">
+              Thoughtful work happens when the right people bring their perspective
+              to the room. Here are a few of the teams I have had the pleasure to
+              build alongside.
+            </p>
+          </div>
+
+          <div className="awards-note">
+            <span className="awards-note-number">07</span>
+            <span className="awards-note-label">
+              collaborations
+              <br />
+              worth remembering
+            </span>
+          </div>
         </motion.div>
       </div>
 
       <div className="client-marquee" aria-label="Wonderful clients">
         <div className="client-track">
           {logoTrack.map((client, index) => (
-            <span className="client-logo" key={`${client}-${index}`} aria-hidden={index >= clients.length}>
+            <span
+              className="client-logo"
+              key={`${client}-${index}`}
+              aria-hidden={index >= clients.length}
+            >
               {client}
             </span>
           ))}
