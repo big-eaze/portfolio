@@ -8,6 +8,7 @@ const clients = [
   "Prime Sphere",
   "SACA",
   "Virtual Styling",
+  "Platt"
 ];
 
 export function Awards() {

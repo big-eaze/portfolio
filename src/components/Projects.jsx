@@ -6,6 +6,7 @@ import primeSphere from "../assets/prime-sphere.png";
 import saca from "../assets/saca-project.png";
 import aurora from "../assets/aurora.png";
 import restu from "../assets/restu.png";
+import platt from "../assets/platt.png";
 import "./Projects.css";
 
 const projects = [
@@ -66,6 +67,16 @@ const projects = [
     tech: ["React", "TailwindCSS"],
     link: "https://saca-project.vercel.app/",
   },
+  {
+    title: "Platt — Food Vendor Platform",
+    image: platt,
+    categories: ["Design", "Development"],
+    description:
+      "An AI powered platform helping food vendors elevate their digital presence through enhanced food presentation, smart branding tools and modern customer-facing experiences — Next.js, PostgreSQL & Supabase.",
+    tech: ["Next.js", "Tailwind", "Supabase", "Framer Motion"],
+    link: "http://platt-izmj.vercel.app",
+    size: "wide",
+  }
 ];
 
 const reveal = {

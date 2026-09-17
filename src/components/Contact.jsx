@@ -5,9 +5,9 @@ import contactSignal from "../assets/contact-signal.svg";
 import "./Contact.css";
 
 const contactInfo = [
-  { icon: <Mail size={18} />, label: "Email", value: "israel.ojeleye.dev@gmail.com", href: "mailto:israel.ojeleye.dev@gmail.com" },
+  { icon: <Mail size={18} />, label: "Email", value: "israelojeleye44@gmail.com", href: "mailto:israelojeleye44@gmail.com" },
   { icon: <Phone size={18} />, label: "Phone / WhatsApp", value: "+234 706 745 9884", href: "tel:+2347067459884" },
-  { icon: <MapPin size={18} />, label: "Location", value: "Lagos, Nigeria", href: null },
+  { icon: <MapPin size={18} />, label: "Location", value: "Abuja, Nigeria", href: null },
 ];
 
 const reveal = {
