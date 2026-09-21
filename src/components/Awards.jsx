@@ -9,7 +9,8 @@ const clients = [
   "Prime Sphere",
   "SACA",
   "Virtual Styling",
-  "Platt"
+  "Platt",
+  "FHandP"
 ];
 
 export function Awards() {
@@ -56,15 +57,6 @@ export function Awards() {
               to the room. Here are a few of the teams I have had the pleasure to
               build alongside.
             </p>
-          </div>
-
-          <div className="awards-note">
-            <span className="awards-note-number">07</span>
-            <span className="awards-note-label">
-              collaborations
-              <br />
-              worth remembering
-            </span>
           </div>
         </motion.div>
       </div>

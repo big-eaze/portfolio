@@ -1,7 +1,9 @@
-import { motion } from "framer-motion";
-import { Award, Check } from "lucide-react";
+import { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
+import {Check, X } from "lucide-react";
 import leafSprig from "../assets/leaf-sprig.svg";
 import leafCluster from "../assets/leaf-cluster.svg";
+import profileImage from "../assets/ISR.png";
 import "./About.css";
 
 const skills = [
@@ -24,6 +26,8 @@ const traits = [
 ];
 
 export function About() {
+  const [isSkillsOpen, setIsSkillsOpen] = useState(false);
+
   return (
     <section className="about" id="about">
       {/* Botanical artwork stays behind the readable content. */}
@@ -70,13 +74,18 @@ export function About() {
             ))}
           </div>
 
-          <a href="#experience" className="about-readmore">
+          <button
+            type="button"
+            className="about-readmore"
+            onClick={() => setIsSkillsOpen(true)}
+            aria-expanded={isSkillsOpen}
+          >
             My tech stack <span className="about-arrow">&rarr;</span>
-          </a>
+          </button>
         </motion.div>
 
         <motion.div
-          className="about-skills"
+          className="about-visual"
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-80px" }}
@@ -86,49 +95,81 @@ export function About() {
           }}
         >
           <motion.div
-            className="about-badge"
+            className="about-photo-frame"
             variants={{
-              hidden: { opacity: 0, y: 22 },
-              visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
+              hidden: { opacity: 0, y: 18 },
+              visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
             }}
           >
-            <Award size={18} />
-            <span>
-              <strong>Clean code</strong>
-              performance &amp; best practices
-            </span>
+            <div className="about-photo-backdrop" aria-hidden="true" />
+            <img className="about-photo" src={profileImage} alt="Israel Ojeleye" />
           </motion.div>
 
-          {skills.map((skill) => (
-            <motion.div
-              className="skill-row"
-              key={skill.name}
-              variants={{
-                hidden: { opacity: 0, y: 26 },
-                visible: { opacity: 1, y: 0, transition: { duration: 0.6 } },
-              }}
-            >
-              <div className="skill-row-top">
-                <span className="skill-name">{skill.name}</span>
-                <span className="skill-pct">{skill.level}%</span>
-              </div>
-              <div className="skill-bar">
-                <motion.div
-                  className="skill-fill"
-                  initial={{ width: 0 }}
-                  whileInView={{ width: `${skill.level}%` }}
-                  viewport={{ once: true, margin: "-40px" }}
-                  transition={{ duration: 1.3, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
-                />
-              </div>
-            </motion.div>
-          ))}
-
-          <p className="about-note">
-            Honest about weak spots too — always leveling up the sharpest tool in the box.
-          </p>
+          <div className="about-skills">
+            <p className="about-note">
+              Honest about weak spots too — always leveling up the sharpest tool in the box.
+            </p>
+          </div>
         </motion.div>
       </div>
+
+      <AnimatePresence>
+        {isSkillsOpen && (
+          <motion.div
+            className="about-skills-modal-backdrop"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsSkillsOpen(false)}
+          >
+            <motion.aside
+              className="about-skills-modal"
+              role="dialog"
+              aria-modal="true"
+              aria-label="Tech stack"
+              initial={{ opacity: 0, x: 120, scale: 0.96 }}
+              animate={{ opacity: 1, x: 0, scale: 1 }}
+              exit={{ opacity: 0, x: 120, scale: 0.96 }}
+              transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+              onClick={(event) => event.stopPropagation()}
+            >
+              <div className="about-skills-modal-header">
+                <div>
+                  <span className="section-eyebrow section-eyebrow-small">Tech stack</span>
+                  <h3>What I work with</h3>
+                </div>
+                <button
+                  type="button"
+                  className="about-modal-close"
+                  aria-label="Close tech stack"
+                  onClick={() => setIsSkillsOpen(false)}
+                >
+                  <X size={18} />
+                </button>
+              </div>
+
+              <div className="about-modal-list">
+                {skills.map((skill) => (
+                  <div className="skill-row skill-row-modal" key={skill.name}>
+                    <div className="skill-row-top">
+                      <span className="skill-name">{skill.name}</span>
+                      <span className="skill-pct">{skill.level}%</span>
+                    </div>
+                    <div className="skill-bar">
+                      <motion.div
+                        className="skill-fill"
+                        initial={{ width: 0 }}
+                        animate={{ width: `${skill.level}%` }}
+                        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </motion.aside>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

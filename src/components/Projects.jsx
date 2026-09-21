@@ -7,9 +7,30 @@ import saca from "../assets/saca-project.png";
 import aurora from "../assets/aurora.png";
 import restu from "../assets/restu.png";
 import platt from "../assets/platt.png";
+import foodma from "../assets/foodma.png";
+import fhandp from "../assets/fhandp.png";
 import "./Projects.css";
 
 const projects = [
+  {
+    title: "Foodma — Restaurant Technology Built For Hospitality.",
+    image: foodma,
+    categories: ["Design", "Development"],
+    description:
+      "Foodma helps restaurant operators run smarter, seamless and more profitable businesses. Known for flexible, cloud-based restaurant management system and 24/7 support.",
+    tech: ["Next", "Tailwind", "Framer Motion"],
+    link: "http://foodma.co",
+    size: "wide",
+  },
+  {
+    title: "FHandP — Real Estate & Property Management",
+    image: fhandp,
+    categories: ["Design", "Development"],
+    description:
+      "FHandP provides a comprehensive solution for real estate professionals to manage properties and clients efficiently.",
+    tech: ["React", "Tailwind", "Framer Motion"],
+    link: "http://fhandp.com",
+  },
   {
     title: "Ginkbow E-commerce",
     image: eCom,
@@ -18,7 +39,6 @@ const projects = [
       "Fully responsive SPA with CRUD, cart and auth — React, Express & Supabase.",
     tech: ["React", "Tailwind", "Supabase", "Framer Motion"],
     link: "http://ginkbow.vercel.app",
-    size: "wide",
   },
   {
     title: "Spice!Route",
