@@ -21,10 +21,10 @@ const services = [
   },
   {
     num: "03",
-    title: "UI / UX Design",
+    title: "API Integration & State",
     description:
-      "Thoughtful interfaces grounded in design systems, motion and clear hierarchy — aesthetics that serve the product.",
-    tags: ["Prototyping", "Design systems", "Motion", "Accessibility"],
+      "Robust data flows between your backend and both web and mobile clients — typed, cached and kept in sync across the whole product.",
+    tags: ["REST", "GraphQL", "React Query", "Redux Toolkit"],
   },
   {
     num: "04",

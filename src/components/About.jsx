@@ -1,19 +1,52 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
-import {Check, X } from "lucide-react";
+import { Check, X } from "lucide-react";
+import {
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiHtml5,
+  SiCss3,
+  SiWordpress,
+  SiExpo,
+  SiFramer,
+  SiRedux,
+  SiReactquery,
+  SiSupabase,
+  SiFirebase,
+  SiVite,
+  SiGit,
+  SiReacthookform,
+} from "react-icons/si";
 import leafSprig from "../assets/leaf-sprig.svg";
 import leafCluster from "../assets/leaf-cluster.svg";
 import profileImage from "../assets/ISR.png";
 import "./About.css";
 
 const skills = [
-  { name: "React.js", level: 95 },
-  { name: "JavaScript / TypeScript", level: 90 },
-  {name: "Python", level: 88 },
-  { name: "Tailwind CSS", level: 93 },
-  { name: "Next.js", level: 88 },
-  { name: "React Native", level: 85 },
-  { name: "WordPress", level: 78 },
+  { name: "JavaScript", Icon: SiJavascript, color: "#F7DF1E" },
+  { name: "TypeScript", Icon: SiTypescript, color: "#3178C6" },
+  { name: "React.js", Icon: SiReact, color: "#61DAFB" },
+  { name: "React Native", Icon: SiReact, color: "#61DAFB" },
+  { name: "Next.js", Icon: SiNextdotjs, color: "#000000" },
+  { name: "Expo", Icon: SiExpo, color: "#000000" },
+  { name: "Tailwind CSS", Icon: SiTailwindcss, color: "#06B6D4" },
+  { name: "HTML", Icon: SiHtml5, color: "#E34F26" },
+  { name: "CSS", Icon: SiCss3, color: "#1572B6" },
+  { name: "Python", Icon: SiPython, color: "#3776AB" },
+  { name: "WordPress", Icon: SiWordpress, color: "#21759B" },
+  { name: "Framer Motion", Icon: SiFramer, color: "#0055FF" },
+  { name: "Redux Toolkit", Icon: SiRedux, color: "#764ABC" },
+  { name: "React Query", Icon: SiReactquery, color: "#FF4154" },
+  { name: "React Hook Form", Icon: SiReacthookform, color: "#EC5990" },
+  { name: "Supabase", Icon: SiSupabase, color: "#3ECF8E" },
+  { name: "Firebase", Icon: SiFirebase, color: "#FFCA28" },
+  { name: "Zustand", Icon: null, short: "Z", color: "#443BA3" },
+  { name: "Vite", Icon: SiVite, color: "#646CFF" },
+  { name: "Git", Icon: SiGit, color: "#F05032" },
 ];
 
 const traits = [
@@ -28,6 +61,22 @@ const traits = [
 export function About() {
   const [isSkillsOpen, setIsSkillsOpen] = useState(false);
 
+  useEffect(() => {
+    if (!isSkillsOpen) return;
+
+    const original = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    const handleKeydown = (event) => {
+      if (event.key === "Escape") setIsSkillsOpen(false);
+    };
+    window.addEventListener("keydown", handleKeydown);
+
+    return () => {
+      document.body.style.overflow = original;
+      window.removeEventListener("keydown", handleKeydown);
+    };
+  }, [isSkillsOpen]);
+
   return (
     <section className="about" id="about">
       {/* Botanical artwork stays behind the readable content. */}
@@ -37,7 +86,7 @@ export function About() {
       </div>
 
       <div className="about-floating-label" aria-hidden="true">ABOUT</div>
-      
+
       <div className="shell about-inner">
         <motion.div
           className="about-copy"
@@ -55,8 +104,8 @@ export function About() {
           </h2>
           <p className="about-lead">
             A website is more than a digital presence — it&rsquo;s a tool that tells your
-            story and moves your business forward. I&rsquo;m <strong>Israel Ojeleye</strong>,
-            a Frontend &amp; Mobile Developer passionate about turning creative ideas
+            story and moves your business forward. I&rsquo;m <strong>Israel Oluwatobi Ojeleye</strong>,
+            a Frontend Developer passionate about turning creative ideas
             into fast, interactive, and visually engaging experiences across web and
             mobile.
           </p>
@@ -147,22 +196,21 @@ export function About() {
                   <X size={18} />
                 </button>
               </div>
-
               <div className="about-modal-list">
                 {skills.map((skill) => (
-                  <div className="skill-row skill-row-modal" key={skill.name}>
-                    <div className="skill-row-top">
-                      <span className="skill-name">{skill.name}</span>
-                      <span className="skill-pct">{skill.level}%</span>
-                    </div>
-                    <div className="skill-bar">
-                      <motion.div
-                        className="skill-fill"
-                        initial={{ width: 0 }}
-                        animate={{ width: `${skill.level}%` }}
-                        transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+                  <div className="skill-tile" key={skill.name}>
+                    {skill.Icon ? (
+                      <skill.Icon
+                        className="skill-logo"
+                        style={{ color: skill.color }}
+                        aria-hidden="true"
                       />
-                    </div>
+                    ) : (
+                      <span className="skill-logo skill-logo-letter" aria-hidden="true">
+                        {skill.short}
+                      </span>
+                    )}
+                    <span className="skill-tile-name">{skill.name}</span>
                   </div>
                 ))}
               </div>

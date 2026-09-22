@@ -125,38 +125,45 @@
 
 .hero-actions-row {
   display: flex;
-  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: center;
   align-items: center;
+  gap: 16px;
   margin-bottom: 40px;
+}
+
+.hero-btn-primary,
+.hero-btn-outline,
+.hero-btn-cv {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 52px;
+  padding: 14px 30px;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.03em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease, background 0.3s ease, color 0.3s ease;
 }
 
 .hero-btn-primary {
   background: #fff;
   color: #111;
-  padding: 14px 32px;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.03em;
-  transition: transform 0.3s ease, background 0.3s ease;
+  box-shadow: 0 12px 24px rgba(17, 17, 17, 0.12);
 }
 
 .hero-btn-primary:hover {
   background: var(--accent);
   color: #fff;
   transform: translateY(-2px);
+  box-shadow: 0 16px 28px rgba(165, 106, 67, 0.3);
 }
 
 .hero-btn-outline {
   background: transparent;
   color: #fff;
   border: 1.5px solid rgba(255, 255, 255, 0.25);
-  padding: 14px 32px;
-  border-radius: 999px;
-  font-weight: 600;
-  font-size: 14px;
-  letter-spacing: 0.03em;
-  transition: border-color 0.3s ease, transform 0.3s ease, background 0.3s ease;
 }
 
 .hero-btn-outline:hover {
@@ -164,6 +171,73 @@
   color: var(--accent);
   background: var(--accent-soft);
   transform: translateY(-2px);
+}
+
+.hero-btn-cv-tooltip {
+  position: relative;
+  background: linear-gradient(135deg, #d9875d 0%, var(--accent) 52%, #8f5632 100%);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 18px 34px rgba(165, 106, 67, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+  overflow: visible;
+  transform: translateY(0);
+}
+
+.hero-btn-cv-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  left: 50%;
+  bottom: calc(100% + 12px);
+  transform: translateX(-50%) translateY(8px);
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(15, 16, 19, 0.92);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.28);
+}
+
+.hero-btn-cv-tooltip:hover::after,
+.hero-btn-cv-tooltip:focus-visible::after {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.hero-btn-cv-tooltip:hover,
+.hero-btn-cv-tooltip:focus-visible {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 22px 40px rgba(165, 106, 67, 0.52);
+}
+
+.hero-btn-cv-tooltip svg {
+  position: relative;
+  z-index: 1;
+  font-size: 13px;
+}
+
+@media (max-width: 760px) {
+  .hero-actions-row {
+    width: 100%;
+    gap: 12px;
+  }
+
+  .hero-btn-primary,
+  .hero-btn-outline,
+  .hero-btn-cv {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .hero-btn-cv {
+    order: 3;
+  }
 }
 
 /* Social Icon Cluster */
@@ -245,9 +319,10 @@
     flex-direction: column;
     width: 100%;
   }
-  .hero-btn-primary, .hero-btn-outline {
+  .hero-btn-primary, .hero-btn-outline, .hero-btn-cv {
     width: 100%;
     text-align: center;
+    justify-content: center;
   }
   .hero-slide-control {
     right: 24px;

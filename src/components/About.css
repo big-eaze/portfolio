@@ -249,42 +249,76 @@
   line-height: 1.5;
 }
 
-.skill-row {
-  margin-bottom: 28px;
+.about-modal-list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(166, 106, 67, 0.14);
+  border-top: 1px solid rgba(166, 106, 67, 0.14);
+  border-bottom: 1px solid rgba(166, 106, 67, 0.14);
+  margin: 0 -28px;
+  overflow-y: auto;
+  flex-shrink: 1;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(166, 106, 67, 0.4) transparent;
 }
 
-.skill-row-top {
+.about-modal-list::-webkit-scrollbar {
+  width: 6px;
+}
+
+.about-modal-list::-webkit-scrollbar-thumb {
+  background: rgba(166, 106, 67, 0.4);
+  border-radius: 999px;
+}
+
+.about-modal-list::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.skill-tile {
   display: flex;
-  justify-content: space-between;
-  align-items: baseline;
-  margin-bottom: 10px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 88px;
+  padding: 14px 6px;
+  background: rgba(250, 248, 245, 0.96);
+  text-align: center;
+  transition: background 0.25s ease;
 }
 
-.skill-name {
+.skill-tile:hover {
+  background: #fff;
+}
+
+.skill-logo {
+  font-size: 30px;
+  line-height: 1;
+}
+
+.skill-logo-letter {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  background: #443ba3;
+  color: #fff;
   font-family: var(--font-body);
-  font-size: 14px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.skill-tile-name {
+  font-family: var(--font-body);
+  font-size: 12px;
   font-weight: 600;
   color: #2b2118;
-}
-
-.skill-pct {
-  font-family: var(--font-body);
-  font-size: 13px;
-  font-weight: 700;
-  color: #A56A43;
-}
-
-.skill-bar {
-  height: 6px;
-  background: rgba(230, 115, 0, 0.12);
-  border-radius: 20px;
-  overflow: hidden;
-}
-
-.skill-fill {
-  height: 100%;
-  background: linear-gradient(90deg, #a67351, #A56A43);
-  border-radius: 20px;
+  line-height: 1.3;
+  word-break: break-word;
 }
 
 .about-note {
@@ -308,12 +342,16 @@
 
 .about-skills-modal {
   width: min(100%, 480px);
+  max-height: calc(100vh - 72px);
+  display: flex;
+  flex-direction: column;
   background: rgba(250, 248, 245, 0.96);
   border: 1px solid rgba(166, 106, 67, 0.16);
   border-radius: 26px;
   box-shadow: 0 30px 80px rgba(32, 24, 18, 0.18);
-  padding: 28px 28px 18px;
+  padding: 24px 28px 24px;
   z-index: 100;
+  overflow: hidden;
 }
 
 .about-skills-modal-header {
@@ -360,13 +398,11 @@
 
 .about-modal-list {
   display: grid;
-  gap: 12px;
+  gap: 2px;
 }
 
 .skill-row-modal {
   margin: 0;
-  padding: 14px 0 0;
-  border-top: 1px solid rgba(166, 106, 67, 0.12);
 }
 
 .skill-row-modal:first-child {

@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaEnvelope, FaDownload } from "react-icons/fa";
 import { Navbar } from "./Navbar";
+import cv from "../assets/Israel-CV.Docx";
 import background from "../assets/background.jpg";
 import background2 from "../assets/background2.jpg";
 import background3 from "../assets/background3.jpg";
@@ -107,7 +108,15 @@ export function Hero() {
 
             <div className="hero-actions-row">
               <a href="#works" className="hero-btn-primary">Explore Works</a>
-              <a href="#contact" className="hero-btn-outline">Let&rsquo;s Connect</a>
+              <a
+                href={cv}
+                className="hero-btn-outline hero-btn-cv-tooltip"
+                download="Israel-CV.Docx"
+                aria-label="Download my CV"
+                data-tooltip="Download my CV"
+              >
+                <FaDownload />
+              </a>
             </div>
 
             <div className="hero-social-cluster">

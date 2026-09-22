@@ -7,11 +7,25 @@ const stack = [
   "Python",
   "React.js",
   "React Native",
+  "Expo",
   "Next.js",
-  "Tailwind CSS",
+  "Tailwind",
+  "NativeWind",
+  "shadcn",
+  "Radix UI",
+  "Material UI",
   "HTML",
   "CSS",
   "WordPress",
+  "Framer Motion",
+  "Redux Toolkit",
+  "Zustand",
+  "React Query",
+  "Clerk",
+  "Supabase",
+  "Firebase",
+  "Vite",
+  "Git/GitHub",
 ];
 
 export function Experience() {
@@ -34,7 +48,7 @@ export function Experience() {
           >
             <span className="section-eyebrow">Tech Stack &amp; Tools</span>
             <h2 className="tech-count">
-              14 tools<span className="tech-slash"> / </span>01 approach
+              20 tools<span className="tech-slash"> / </span>01 approach
             </h2>
             <p className="tech-intro-text">
               Interfaces are built with the right tool for the feeling, not the loudest tool in the room. 
